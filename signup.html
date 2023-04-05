@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Signup</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./Assets/css/style.css">
+
+</head>
+
+<body>
+    <div class="mt-2"><img src="./Assets/img/logo.jpg" alt="logo" class="img-fluid logo mx-auto d-block"></div>
+    <div class="container px-5 pt-2 mt-3 border border-primary border-opacity-50 rounded-5" id="mainborder_signup">
+        <div class="row">
+            <div class="col-md-6 mt-5">
+                <img src="./Assets/img/4957136.jpg" alt="signup" class="img-fluid" id="signup_img">
+            </div>
+            <div class="col-md-6 p-0 ps-4" id="signup_part">
+                <h2 class="text-center" id="signup_name">Sign Up</h2>
+                <form id="form" method="post" onsubmit="validateInputs(event)">
+                    <div class="mt-4 field input-control">
+                        <lable for="fname" class="form-label" id="fname_name">Full Name:</lable>
+                        <input type="text" id="fname" name="fname" placeholder="Full Name"
+                            class="mt-1 form-control border border-primary border-opacity-50" onclick="click()">
+                        <div class="error"></div>
+                    </div>
+                    <div class="mt-4 field input-control">
+                        <lable for="emailid" class="form-label" id="emailid_name">Email-id:</lable>
+                        <input type="text" id="emailid" name="emailid" placeholder="Email"
+                            class="mt-1 form-control border border-primary border-opacity-50">
+                        <div class="error"></div>
+                    </div>
+                    <div class="mt-4">
+                        <lable for="password" class="form-label" id="password_name">Password:</lable>
+                        <div class="field input-control input-group">
+                            <input type="password" id="password" name="password" placeholder="Password"
+                                class="mt-1 form-control border border-primary border-opacity-50">
+                            <i class="fa fa-eye-slash input-group-text" aria-hidden="true"></i>
+                            <div class="error w-100"></div>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <lable for="confirmpassword" class="form-label" id="confirmpassword_name">Confirm Password:</lable>
+                        <div class="field input-control input-group">
+                            <input type="confirmpassword" id="confirmpassword" name="confirmpassword"
+                                placeholder="Confirm Password"
+                                class="mt-1 form-control border border-primary border-opacity-50">
+                            <i class="fa fa-eye-slash input-group-text" aria-hidden="true"></i>
+                            <div class="error w-100"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-4 field_btn">
+                        <button type="submit" class="btn btn-outline-primary px-5 submit_btn"
+                            id="signupbtn">Submit</button>
+                    </div>
+                    <div class="text-center mt-4 field">
+                        <p id="question">Already have an account?<a class="text-primary text-decoration-none" id="login"
+                                href="./login.html"> Login</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+
+    <script src="./Assets/js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,106 @@
+#forgot{
+    color: #0074d9;
+    cursor: pointer;
+}
+#signup:hover, #login:hover{
+    cursor: pointer;
+}
+#back-to-login:hover{
+    cursor: pointer;
+    color: #0074d9 !important;
+}
+#back-to-login{
+    font-size: 17px;
+    color: black !important;
+}
+.input-control.error input{
+    border-color: #ff3860 !important;
+}
+.input-control .error{
+    color: #ff3860;
+    font-size: 11px;
+    height: 5px;
+}
+.logo{
+    width: 155px;
+    height: 55px;
+}
+.home_logo{
+    width: 140px;
+    height: 60px;
+}
+#nav_button{
+    align-items: flex-end;
+}
+.active, .menu_item:hover{
+    color: #0074d9 !important;
+    border-bottom: 2px solid #0074d9;
+}
+.slide_img{
+    width: 100%;
+}
+.fa-eye-slash{
+    cursor: pointer;
+    color: black;
+  }
+.input-group-text{
+    padding: 10px;
+    height: 37.6px;
+    margin-top: 4px;
+}
+.logpassword{
+    height: 37.6px;
+}
+#sitename{
+    font-family: Noto Sans TC Bold;
+}
+ @media (max-width: 1200px){ 
+    #mainborder_login, #mainborder_forgot_password{
+        margin-top: 60px !important;
+    }
+    #mainborder_signup{
+        margin-top: 12px !important;
+    }
+    #forgot_password_part, #reset_img, #reset_part{
+        margin-top: 0px !important;
+    }
+    #mainborder_reset_password{
+        margin-top: 80px !important;
+    }
+ } 
+ @media (max-width: 992px) and (min-width: 768px){ 
+    #mainborder{
+        margin-top: 90px !important;
+    }
+    #login_part, #signup_part, #reset_name{
+        margin-top: 0px !important;
+    }
+    #login_img{
+        margin-top: 30px;
+    }
+    #mainborder_signup{
+        margin-top: 3px !important;
+    }
+    #signup_img{
+        margin-top: 70px;
+    }
+    #mainborder_forgot_password{
+        margin-top: 110px !important;
+    } 
+    #forgot_password_name{
+        margin-top: 0px !important;
+        padding-top: 10px !important;
+    }
+    #mainborder_reset_password{
+        margin-top: 130px !important;
+    }
+ }
+ @media (max-width: 768px){
+    #mainborder, #mainborder_signup, #mainborder_forgot_password, #mainborder_reset_password{
+        margin-top: 10px !important;
+    }
+    #login_part, #forgot_password_part, #reset_part, #signup_part{
+        padding-left: 0px !important;
+        margin-top: 10px !important;
+    }
+ } 
