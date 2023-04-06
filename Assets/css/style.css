@@ -1,3 +1,6 @@
+ main{
+    min-height: 35.7vh;
+} 
 #forgot{
     color: #0074d9;
     cursor: pointer;
@@ -52,7 +55,15 @@
     height: 37.6px;
 }
 #sitename{
-    font-family: Noto Sans TC Bold;
+    font-family: sans-serif;
+}
+.li_hover:hover{
+    color: black !important;
+    cursor: pointer;
+}
+.border-bottom{
+    width: auto;
+    border-bottom: 2px solid !important;
 }
  @media (max-width: 1200px){ 
     #mainborder_login, #mainborder_forgot_password{
