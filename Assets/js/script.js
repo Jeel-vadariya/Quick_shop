@@ -106,8 +106,20 @@ const validateInputs = (event) => {
     else{
         setSuccess(confirm_password);
     }
+    
+    // if(validateInputs() == true){
+    //     try{
+    //         fetch('http://192.168.1.97:4000/api/register')
+    //         .then(response => response.text())
+    //         .then(data => console.log(data));
+    //     }
+    //     catch{
 
+    //     }
+    // }
 }
+
+
 
 const validate = (event) => {
 

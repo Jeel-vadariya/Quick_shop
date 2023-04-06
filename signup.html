@@ -7,6 +7,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -28,7 +30,8 @@
             </div>
             <div class="col-md-6 p-0 ps-4" id="signup_part">
                 <h2 class="text-center" id="signup_name">Sign Up</h2>
-                <form id="form" method="post" onsubmit="validateInputs(event)">
+                <form id="form" name="form" method="post" onsubmit="validateInputs(event)">
+                    <input type="hidden" name="num" id="num">   
                     <div class="mt-4 field input-control">
                         <lable for="fname" class="form-label" id="fname_name">Full Name:</lable>
                         <input type="text" id="fname" name="fname" placeholder="Full Name"
@@ -63,13 +66,14 @@
                     
                     <div class="text-center mt-4 field_btn">
                         <button type="submit" class="btn btn-outline-primary px-5 submit_btn"
-                            id="signupbtn">Submit</button>
+                            id="signupbtn" onclick="fetchdata()">Submit</button>
                     </div>
                     <div class="text-center mt-4 field">
                         <p id="question">Already have an account?<a class="text-primary text-decoration-none" id="login"
                                 href="./login.html"> Login</a></p>
                     </div>
                 </form>
+                <ul class="messages"></ul>
             </div>
         </div>
 
@@ -83,7 +87,9 @@
         integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
         </script>
 
+    <script src="./Assets/js/apiscript.js"></script>
     <script src="./Assets/js/script.js"></script>
+    <!-- <script src="./Assets/js/localstorage.js"></script> -->
 </body>
 
 </html>
