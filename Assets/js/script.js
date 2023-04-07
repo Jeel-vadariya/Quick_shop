@@ -65,59 +65,56 @@ const isValidEmail = email => {
 const validateInputs = (event) => {
 
     event.preventDefault();
-    const fullnameValue = fullname.value.trim();
-    const emailValue = email.value.trim();
-    const passwordValue = password.value.trim();
-    const confirm_passwordValue = confirm_password.value.trim();
-
-    if(fullnameValue === ''){
+    const userdata = {
+        fullnameValue : fullname.value.trim(),
+        emailValue : email.value.trim(),
+        passwordValue : password.value.trim(),
+        confirm_passwordValue : confirm_password.value.trim()
+    }
+    if(userdata.fullnameValue === ''){
         setError(fullname, 'Fullname is required');
     }
     else{
         setSuccess(fullname);
     }
-
-    if(emailValue === ''){
+    
+    if(userdata.emailValue === ''){
         setError(email, 'Email-id is required');
     }
-    else if(!isValidEmail(emailValue)){
+    else if(!isValidEmail(userdata.emailValue)){
         setError(email, ' Enter a valid Email-id');
     }
     else{
         setSuccess(email);
     }
-
-    if(passwordValue === ''){
+    
+    if(userdata.passwordValue === ''){
         setError(password, 'password is required');
     }
-    else if(passwordValue.length < 8){
+    else if(userdata.passwordValue.length < 8){
         setError(password, 'password must be at least 8 character');
     }
     else{
         setSuccess(password);
     }
-
-    if(confirm_passwordValue === ''){
+    
+    if(userdata.confirm_passwordValue === ''){
         setError(confirm_password, 'confirm password is required');
     }
-    else if(confirm_passwordValue !== passwordValue){
+    else if(userdata.confirm_passwordValue !== userdata.passwordValue){
         setError(confirm_password, "password doesn't match");
     }
     else{
         setSuccess(confirm_password);
     }
-    
-    // if(validateInputs() == true){
-    //     try{
-    //         fetch('http://192.168.1.97:4000/api/register')
-    //         .then(response => response.text())
-    //         .then(data => console.log(data));
-    //     }
-    //     catch{
 
-    //     }
-    // }
+    if(userdata != null){
+        apicalling();
+    }
 }
+
+
+
 
 
 
@@ -147,7 +144,22 @@ const validate = (event) => {
     else{
         setSuccess(password);
     }
+
+
 }
+// function clickbutton(){
+//       var email = document.form.emailid.value;
+//       var pass = document.form.password.value;
+//       var emailid = "emailid";
+//       var password = "password";
+//       if ((email == emailid) && (pass == password)){
+//         return true;
+//       }
+//       else {
+//         alert ("Login was unsuccessful, please check your username and password");
+//         return false;
+//     }
+// }
 
 const validatenewpassword = (event) => {
 
