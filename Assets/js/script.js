@@ -8,37 +8,6 @@ const newconfirmpassword = document.getElementById('confirm-new-password');
 const input = document.getElementsByTagName('input');
 const eye = document.getElementsByClassName("fa-eye-slash");
 
-eye[0].addEventListener("click", function () {
-   
-    // toggle the type attribute
-    const type = password.getAttribute("type") === "password" ? "text" : "password";
-    password.setAttribute("type", type);
-    
-    // toggle the eye icon
-    this.classList.toggle('fa-eye');
-    this.classList.toggle('fa-eye-slash');
-    });
-// input.addEventListener('click', element => {
-//     const inputControl = element.parentElement;
-//     const errorDisplay = inputControl.querySelector('.error');
-
-//     errorDisplay.innerText = '';
-//     inputControl.classList.add('success');
-//     inputControl.classList.remove('error');
-// });
-// signupbtn.addEventListener('click', e => {
-//     e.preventDefault();
-
-//     validateInputs();
-// });
-
-// loginbtn.addEventListener('click', e => {
-//     e.preventDefault();
-
-//     validate();
-// });
-
-
 const setError = (element, message) => {
     const inputControl = element.parentElement;
     const errorDisplay = inputControl.querySelector('.error');
@@ -65,56 +34,52 @@ const isValidEmail = email => {
 const validateInputs = (event) => {
 
     event.preventDefault();
-    const userdata = {
-        fullnameValue : fullname.value.trim(),
-        emailValue : email.value.trim(),
-        passwordValue : password.value.trim(),
-        confirm_passwordValue : confirm_password.value.trim()
-    }
-    if(userdata.fullnameValue === ''){
-        setError(fullname, 'Fullname is required');
+        fullnameValue = fullname.value.trim();
+        emailValue = email.value.trim();
+        passwordValue = password.value.trim();
+        confirm_passwordValue = confirm_password.value.trim();
+    
+    if(fullnameValue === ''){
+        setError(fullname, message.FULLNAME);
     }
     else{
         setSuccess(fullname);
     }
     
-    if(userdata.emailValue === ''){
-        setError(email, 'Email-id is required');
+    if(emailValue === ''){
+        setError(email, message.EMAIL_REQ);
     }
-    else if(!isValidEmail(userdata.emailValue)){
-        setError(email, ' Enter a valid Email-id');
+    else if(!isValidEmail(emailValue)){
+        setError(email, message.EMAIL_VALID);
     }
     else{
         setSuccess(email);
     }
     
-    if(userdata.passwordValue === ''){
-        setError(password, 'password is required');
+    if(passwordValue === ''){
+        setError(password, message.PASSWORD);
     }
-    else if(userdata.passwordValue.length < 8){
-        setError(password, 'password must be at least 8 character');
+    else if(passwordValue.length < 8){
+        setError(password, message.PASSWORD_LENGTH);
     }
     else{
         setSuccess(password);
     }
     
-    if(userdata.confirm_passwordValue === ''){
-        setError(confirm_password, 'confirm password is required');
+    if(confirm_passwordValue === ''){
+        setError(confirm_password, message.CONFIRM_PASSWORD);
     }
-    else if(userdata.confirm_passwordValue !== userdata.passwordValue){
-        setError(confirm_password, "password doesn't match");
+    else if(confirm_passwordValue !== passwordValue){
+        setError(confirm_password, message.MATCH_PASSWORD);
     }
     else{
         setSuccess(confirm_password);
     }
 
-    if(userdata != null){
+    if(validateInputs != null){
         apicalling();
     }
 }
-
-
-
 
 
 
@@ -123,43 +88,27 @@ const validate = (event) => {
     event.preventDefault();
     const emailValue = email.value.trim();
     const passwordValue = password.value.trim();
-    console.log(passwordValue, "passwordValue")
 
     if(emailValue === ''){
-        setError(email, 'Email-id is required');
+        setError(email, message.EMAIL_REQ);
     }
     else if(!isValidEmail(emailValue)){
-        setError(email, ' Enter a valid Email-id');
+        setError(email, message.EMAIL_VALID);
     }
     else{
         setSuccess(email);
     }
 
     if(passwordValue === ''){
-        setError(password, 'password is required');
+        setError(password, message.PASSWORD);
     }
     else if(passwordValue.length < 8){
-        setError(password, 'password must be at least 8 character');
+        setError(password, message.PASSWORD_LENGTH);
     }
     else{
         setSuccess(password);
     }
-
-
 }
-// function clickbutton(){
-//       var email = document.form.emailid.value;
-//       var pass = document.form.password.value;
-//       var emailid = "emailid";
-//       var password = "password";
-//       if ((email == emailid) && (pass == password)){
-//         return true;
-//       }
-//       else {
-//         alert ("Login was unsuccessful, please check your username and password");
-//         return false;
-//     }
-// }
 
 const validatenewpassword = (event) => {
 
@@ -169,20 +118,20 @@ const validatenewpassword = (event) => {
    
 
     if(newpasswordValue === ''){
-        setError(newpassword, 'New password is required');
+        setError(newpassword, message.NEW_PASSWORD);
     }
     else if(newpasswordValue.length < 8){
-        setError(newpassword, 'Password must be at least 8 character');
+        setError(newpassword, message.PASSWORD_LENGTH);
     }
     else{
         setSuccess(newpassword);
     }
 
     if(newconfirmpasswordValue === ''){
-        setError(newconfirmpassword, 'Confirm new password is required');
+        setError(newconfirmpassword, message.NEW_CONFIRM_PASSWORD);
     }
     else if(newconfirmpasswordValue !== newpasswordValue){
-        setError(newconfirmpassword, "Password doesn't match");
+        setError(newconfirmpassword, message.MATCH_PASSWORD);
     }
     else{
         setSuccess(newconfirmpassword);
@@ -195,12 +144,14 @@ const validateforgotpassword = (event) => {
     const emailValue = email.value.trim();
 
     if(emailValue === ''){
-        setError(email, 'Email-id is required');
+        setError(email, message.EMAIL_REQ);
     }
     else if(!isValidEmail(emailValue)){
-        setError(email, ' Enter a valid Email-id');
+        setError(email, message.EMAIL_VALID);
     }
     else{
         setSuccess(email);
     }
+
+    forgotpassword();
 }

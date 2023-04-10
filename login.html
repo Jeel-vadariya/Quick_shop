@@ -8,6 +8,8 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -29,7 +31,8 @@
             </div>
             <div class="col-md-6 p-0 ps-4 mt-5" id="login_part">
                 <h2 class="text-center" id="login_name">Login</h2>
-                <form id="form" method="post" onsubmit="validate(event);clickbutton();">
+                <form id="form" method="post" onsubmit="validate(event);loginapi();">
+                    <input type="hidden" name="num" id="num"> 
                     <div class="mt-4 field input-control">
                         <lable for="emailid" class="form-label" id="emailid_name">Email-id:</lable>
                         <input type="text" id="emailid" name="emailid" placeholder="Email"
@@ -71,6 +74,10 @@
         </script>
 
     <script src="./Assets/js/script.js"></script>
+    <script src="./Assets/js/apiscript.js"></script>
+    <script src="./Assets/js/localstorage.js"></script>
+    <script src="./Assets/js/message.js"></script>
+    <script src="./Assets/js/api.js"></script>
 
 </body>
 
