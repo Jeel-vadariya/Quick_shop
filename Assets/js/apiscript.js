@@ -39,7 +39,6 @@ function loginapi(){
                 success: function (data, textStatus, xhr) {
                     console.log(data);
                     loginstorage();
-                    
                     forgotpassword();
                     
                 },
@@ -64,7 +63,7 @@ function forgotpassword(){
                 data: person,
                 success: function (data, textStatus, xhr) {
                     console.log(data);
-                    // resetpassword();
+                    resetpassword();
                 },
                 error: function (xhr, textStatus, errorThrown) {
                     console.log(message.FORGOT_ERROR);

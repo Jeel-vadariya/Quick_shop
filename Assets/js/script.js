@@ -152,6 +152,4 @@ const validateforgotpassword = (event) => {
     else{
         setSuccess(email);
     }
-
-    forgotpassword();
 }

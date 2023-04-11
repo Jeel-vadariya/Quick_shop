@@ -12,7 +12,7 @@ function storage() {
         data_arr.push(user_data);
         localStorage.setItem('user_info', JSON.stringify(data_arr));
         alert(message.SIGNUP_DATA);
-        location.href = "C:\\Techcronus\\Quick_shop\\Quick_Shop\\login.html";
+        location.href = "http://localhost:8080/login.html";
         loginapi();
     }
 }
@@ -29,7 +29,7 @@ function loginstorage() {
         data_array.push(user_data);
         localStorage.setItem('user_login', JSON.stringify(data_array));
         alert(message.LOGIN_DATA);
-        location.href = "C:\\Techcronus\\Quick_shop\\Quick_Shop\\home.html";
+        // location.href = "http://localhost:8080/home.html";
     }
 }
 
