@@ -34,49 +34,49 @@ const isValidEmail = email => {
 const validateInputs = (event) => {
 
     event.preventDefault();
-        fullnameValue = fullname.value.trim();
-        emailValue = email.value.trim();
-        passwordValue = password.value.trim();
-        confirm_passwordValue = confirm_password.value.trim();
-    
-    if(fullnameValue === ''){
+    fullnameValue = fullname.value.trim();
+    emailValue = email.value.trim();
+    passwordValue = password.value.trim();
+    confirm_passwordValue = confirm_password.value.trim();
+
+    if (fullnameValue === '') {
         setError(fullname, message.FULLNAME);
     }
-    else{
+    else {
         setSuccess(fullname);
     }
-    
-    if(emailValue === ''){
+
+    if (emailValue === '') {
         setError(email, message.EMAIL_REQ);
     }
-    else if(!isValidEmail(emailValue)){
+    else if (!isValidEmail(emailValue)) {
         setError(email, message.EMAIL_VALID);
     }
-    else{
+    else {
         setSuccess(email);
     }
-    
-    if(passwordValue === ''){
+
+    if (passwordValue === '') {
         setError(password, message.PASSWORD);
     }
-    else if(passwordValue.length < 8){
+    else if (passwordValue.length < 8) {
         setError(password, message.PASSWORD_LENGTH);
     }
-    else{
+    else {
         setSuccess(password);
     }
-    
-    if(confirm_passwordValue === ''){
+
+    if (confirm_passwordValue === '') {
         setError(confirm_password, message.CONFIRM_PASSWORD);
     }
-    else if(confirm_passwordValue !== passwordValue){
+    else if (confirm_passwordValue !== passwordValue) {
         setError(confirm_password, message.MATCH_PASSWORD);
     }
-    else{
+    else {
         setSuccess(confirm_password);
     }
 
-    if(validateInputs != null){
+    if (validateInputs != null) {
         apicalling();
     }
 }
@@ -89,24 +89,26 @@ const validate = (event) => {
     const emailValue = email.value.trim();
     const passwordValue = password.value.trim();
 
-    if(emailValue === ''){
+    if (emailValue === '') {
         setError(email, message.EMAIL_REQ);
     }
-    else if(!isValidEmail(emailValue)){
+    else if (!isValidEmail(emailValue)) {
         setError(email, message.EMAIL_VALID);
     }
-    else{
+    else {
         setSuccess(email);
     }
 
-    if(passwordValue === ''){
+    if (passwordValue === '') {
         setError(password, message.PASSWORD);
     }
-    else if(passwordValue.length < 8){
+    else if (passwordValue.length < 8) {
         setError(password, message.PASSWORD_LENGTH);
     }
-    else{
+    else {
         setSuccess(password);
+        alert("ok");
+        loginapi();
     }
 }
 
@@ -115,25 +117,25 @@ const validatenewpassword = (event) => {
     event.preventDefault();
     const newpasswordValue = newpassword.value.trim();
     const newconfirmpasswordValue = newconfirmpassword.value.trim();
-   
 
-    if(newpasswordValue === ''){
+
+    if (newpasswordValue === '') {
         setError(newpassword, message.NEW_PASSWORD);
     }
-    else if(newpasswordValue.length < 8){
+    else if (newpasswordValue.length < 8) {
         setError(newpassword, message.PASSWORD_LENGTH);
     }
-    else{
+    else {
         setSuccess(newpassword);
     }
 
-    if(newconfirmpasswordValue === ''){
+    if (newconfirmpasswordValue === '') {
         setError(newconfirmpassword, message.NEW_CONFIRM_PASSWORD);
     }
-    else if(newconfirmpasswordValue !== newpasswordValue){
+    else if (newconfirmpasswordValue !== newpasswordValue) {
         setError(newconfirmpassword, message.MATCH_PASSWORD);
     }
-    else{
+    else {
         setSuccess(newconfirmpassword);
     }
 }
@@ -143,13 +145,15 @@ const validateforgotpassword = (event) => {
     event.preventDefault();
     const emailValue = email.value.trim();
 
-    if(emailValue === ''){
+    if (emailValue === '') {
         setError(email, message.EMAIL_REQ);
     }
-    else if(!isValidEmail(emailValue)){
+    else if (!isValidEmail(emailValue)) {
         setError(email, message.EMAIL_VALID);
     }
     else{
         setSuccess(email);
+        alert("okay");
+        forgotpassword();
     }
 }

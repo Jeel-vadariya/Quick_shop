@@ -12,8 +12,7 @@ function storage() {
         data_arr.push(user_data);
         localStorage.setItem('user_info', JSON.stringify(data_arr));
         alert(message.SIGNUP_DATA);
-        location.href = "http://localhost:8080/login.html";
-        loginapi();
+        location.href = "http://localhost/project/login.html";
     }
 }
 
@@ -29,7 +28,7 @@ function loginstorage() {
         data_array.push(user_data);
         localStorage.setItem('user_login', JSON.stringify(data_array));
         alert(message.LOGIN_DATA);
-        // location.href = "http://localhost:8080/home.html";
+        location.href = "http://localhost/project/login.html";
     }
 }
 

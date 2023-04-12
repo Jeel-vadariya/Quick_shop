@@ -23,9 +23,10 @@ function apicalling(){
     });
     
 });
-}
+};
 
 function loginapi(){
+    alert("ok");
     $(document).ready(function (){
         $("#loginbtn").click(function () {
             var person = new Object();
@@ -38,9 +39,7 @@ function loginapi(){
                 data: person,
                 success: function (data, textStatus, xhr) {
                     console.log(data);
-                    loginstorage();
-                    forgotpassword();
-                    
+                    loginstorage();   
                 },
                 error: function (xhr, textStatus, errorThrown) {
                     console.log(message.LOGIN_ERROR);
@@ -49,30 +48,31 @@ function loginapi(){
             });
         });    
     }); 
-}
+};
 
 function forgotpassword(){
     $(document).ready(function (){
         $("#forgotbtn").click(function () {
             var person = new Object();
-            person.email = $('#emailid').val()
+            person.email = $('#emailid').val()  
             $.ajax({
                 url: API + FORGOT,
                 type: 'POST',
                 dataType: 'json',
                 data: person,
                 success: function (data, textStatus, xhr) {
-                    console.log(data);
+                    console.log(data); 
                     resetpassword();
                 },
                 error: function (xhr, textStatus, errorThrown) {
-                    console.log(message.FORGOT_ERROR);
+                    console.log(message.FORGOT_ERROR); 
+
                 },
                 timeout: 5000
             });
         });
     });
-}
+};   
 
 function resetpassword(){
     $(document).ready(function(){
@@ -95,5 +95,5 @@ function resetpassword(){
             });
         });
     });
-}
+};
  
