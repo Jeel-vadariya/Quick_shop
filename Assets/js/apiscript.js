@@ -56,7 +56,7 @@ function forgotpassword(){
             var person = new Object();
             person.email = $('#emailid').val()  
             $.ajax({
-                url: API + FORGOT,
+                url: 'http://192.168.1.252:4000/api/password/forgot',
                 type: 'POST',
                 dataType: 'json',
                 data: person,
@@ -65,8 +65,7 @@ function forgotpassword(){
                     resetpassword();
                 },
                 error: function (xhr, textStatus, errorThrown) {
-                    console.log(message.FORGOT_ERROR); 
-
+                    console.log(message.FORGOT_ERROR);
                 },
                 timeout: 5000
             });
@@ -74,14 +73,14 @@ function forgotpassword(){
     });
 };   
 
-function resetpassword(){
+function resetpassword(token){
     $(document).ready(function(){
-        $("resetbtn").click(function () {
+        $("#resetbtn").click(function () {
             var person = new Object();
             person.newpassword = $('#new-password').val(),
             person.confirmnewpassword = $('#confirm-new-password').val()
             $.ajax({
-                url: API + RESET,
+                url: API + RESET.replace(':token', token),
                 type: 'POST',
                 dataType: 'json',
                 data: person,

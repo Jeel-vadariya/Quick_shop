@@ -1,38 +1,59 @@
-document.addEventListener('DOMContentLoaded', function () {
-    let products = document.querySelector('.products');
-    async function fetchProducts(url) {
-      try {
-        let data = await fetch(url);
-        let response = await data.json();
+const productAPI = 'http://192.168.1.252:4000/api/product';
+    const productList = document.querySelector('.product-list');
 
-        for (let i = 0; i < response.length; i++) {
-          let description = response[i].description;
-          let title = response[i].title;
-          products.innerHTML += `
-     <div class="product">
-         <img src="${response[i].images[1]}" alt="${response[i].category.name
-            }" class="product-img">
-         <div class="product-content">
-         <h2 class="product-title">${title.length > 18 ? title.substring(0, 18).concat(' ...') : title
-            }</h2>
-         <h4 class="product-category">${response[i].category.name}</h4>
-         <p class="product-description">${description.length > 80
-              ? description.substring(0, 80).concat(' ...more')
-              : description
-            }</p>
-         <div class="product-price-container">
-             <h3 class="product-price">$${response[i].price}</h3>
-             <a href="#!" data-productId="${response[i].id
-            }" class="add-to-cart"><ion-icon name="cart-outline"></ion-icon></a>
-         </div>
-         </div>
-        
-     </div>
-     `;
-        }
-      } catch (err) {
-        console.log(err);
-      }
-    }
-    fetchProducts('https://api.escuelajs.co/api/v1/products');
-  });
+    fetch(productAPI)
+      .then(response => response.json())
+      .then(data => {
+        console.log('data:', data);
+
+        const products = data.products;
+
+        products.forEach(product => {
+          const productCardHtml = `
+        <div class="product-card">
+          <img class="product-image" src="${product.images[0].url}">
+          <div class="product-name">${product.name}</div>
+          <div class="price-container">
+          <div class="product-price">₹${product.price}</div>
+          <button class="add-to-cart-button" data-product-id="${product.id}"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+          </div>
+        </div>
+      `;
+
+          productList.insertAdjacentHTML('beforeend', productCardHtml);
+        });
+
+        const cartButton = document.querySelector('.cart-button');
+        cartButton.addEventListener('click', () => {
+          // Handle cart button click
+        });
+
+        const productNames = document.querySelectorAll('.product-name');
+        productNames.forEach(name => {
+          name.addEventListener('click', () => {
+            const productId = name.dataset.productId;
+            console.log('productId:', productId);
+    
+            fetch(`${productEndpoint}/${productId}`)
+              .then(response => response.json())
+              .then(product => {
+                console.log('product details:', product);
+                // Handle displaying product details
+              })
+              .catch(error => {
+                console.error(error);
+              });
+          });
+        });
+
+        const addToCartButtons = document.querySelectorAll('.add-to-cart-button');
+        addToCartButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            const productId = button.dataset.productId;
+            // Handle add to cart button click for product with ID productId
+          });
+        });
+      })
+      .catch(error => {
+        console.error(error);
+      });
