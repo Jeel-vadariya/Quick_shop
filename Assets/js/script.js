@@ -137,6 +137,7 @@ const validatenewpassword = (event) => {
     }
     else {
         setSuccess(newconfirmpassword);
+        resetpassword();
     }
 }
 
@@ -153,7 +154,6 @@ const validateforgotpassword = (event) => {
     }
     else{
         setSuccess(email);
-        alert("okay");
         forgotpassword();
     }
 }

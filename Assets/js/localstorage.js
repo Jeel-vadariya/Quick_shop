@@ -26,9 +26,8 @@ function loginstorage() {
     if (user_data.number == '') {
         user_data["number"] = data_array.length + 1;
         data_array.push(user_data);
-        localStorage.setItem('user_login', JSON.stringify(data_array));
+        localStorage.setItem('user_login', JSON.stringify(data_array)); 
         alert(message.LOGIN_DATA);
-        location.href = "http://localhost:8090/project/login.html";
     }
 }
 
