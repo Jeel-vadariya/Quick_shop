@@ -30,7 +30,8 @@ function loginapi() {
         $("#loginbtn").click(function () {
             var person = new Object();
             person.email = $('#emailid').val(),
-                person.password = $('#password').val()
+            person.password = $('#password').val()
+            alert("hello");  
             $.ajax({
                 url: API + LOGIN_URL,
                 type: 'POST',
@@ -38,7 +39,7 @@ function loginapi() {
                 data: person,
                 success: function (data, textStatus, xhr) {
                     console.log(data);
-                    loginstorage(data);
+                    loginstorage();
                 },
                 error: function (xhr, textStatus, errorThrown) {
                     console.log(message.LOGIN_ERROR);
@@ -81,7 +82,7 @@ function resetpassword() {
                 person.confirmPassword = $('#confirm-new-password').val()
                 console.log(person);
             $.ajax({
-                url: `http://192.168.1.252:4000/api/password/reset/${token}`,
+                url: API + RESET,
                 type: 'PUT',
                 dataType: 'json',
                 data: person,

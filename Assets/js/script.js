@@ -107,8 +107,7 @@ const validate = (event) => {
     }
     else {
         setSuccess(password);
-        alert("ok");
-        loginapi();
+        loginapi(); 
     }
 }
 
