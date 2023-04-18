@@ -13,7 +13,7 @@ function apicalling() {
                 data: person,
                 success: function (data, textStatus, xhr) {
                     console.log(data);
-                    storage();
+                    location.href = "http://localhost:8090/project/login.html";
                 },
                 error: function (xhr, textStatus, errorThrown) {
                     console.log(message.SIGNUP_ERROR);
@@ -56,7 +56,7 @@ function forgotpassword() {
             var person = new Object();
             person.email = $('#emailid').val()
             $.ajax({
-                url: API + FORGOT,
+                url: `http://192.168.1.164:4000/api/password/forgot`,
                 type: 'POST',
                 dataType: 'json',
                 data: person,
@@ -78,8 +78,8 @@ function resetpassword() {
         $("#resetbtn").click(function () {
             var person = new Object();
             const token = window.location.href.split('=')[1];
-            person.password = $('#new-password').val(),
-                person.confirmPassword = $('#confirm-new-password').val()
+            person.password = $('#password').val(),
+            person.confirmPassword = $('#confirm_password').val()
                 console.log(person);
             $.ajax({
                 url: API + RESET,
@@ -88,6 +88,7 @@ function resetpassword() {
                 data: person,
                 success: function (data, textStatus, xhr) {
                     console.log(data);
+                    location.href = "http://localhost:8090/project/home.html";
                 },
                 error: function (xhr, textStatus, errorThrown) {
                     console.log(message.RESET_ERROR);

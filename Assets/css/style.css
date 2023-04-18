@@ -7,6 +7,26 @@
     display: flex;
     flex-direction: column;
 }
+.details-card{
+    max-width: 1200px;
+}
+.main{
+    min-height: 32.6vh;
+}
+.modal-discription{
+    font-size: 20px;
+}
+.modal-rating,
+.modal-stock,
+.modal-review{
+    font-size: 18px;
+}
+.review-box{
+    width: 17%;
+}
+.card{
+    box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.306);
+}
 
 .header {
     height: 70px;

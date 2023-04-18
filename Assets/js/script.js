@@ -2,9 +2,9 @@ const form = document.getElementById('form');
 const fullname = document.getElementById('fname');
 const email = document.getElementById('emailid');
 const password = document.getElementById('password');
-const confirm_password = document.getElementById('confirmpassword');
+const confirm_password = document.getElementById('confirm-password');
 const newpassword = document.getElementById('new-password');
-const newconfirmpassword = document.getElementById('confirm-new-password');
+const newconfirmpassword = document.getElementById('confirm-password');
 const input = document.getElementsByTagName('input');
 const eye = document.getElementsByClassName("fa-eye-slash");
 
