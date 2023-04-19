@@ -10,8 +10,8 @@
 .details-card{
     max-width: 1200px;
 }
-.main{
-    min-height: 32.6vh;
+.main, main{
+    min-height: 49.7vh;
 }
 .modal-discription{
     font-size: 20px;
@@ -142,6 +142,72 @@
     width: 83%;
 }
 
+#toast-container > div {
+    opacity: 0.9;
+}
+.toast {
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 14px;
+}
+.toast-error {
+    background-color: #dc3545;
+    color: #fff;
+}
+.toast-success {
+    background-color: #28a745;
+    color: #fff;
+}
+.toast-warning {
+    background-color: goldenrod;
+    color: #fff;
+}
+.ui-widget-header{
+    background-color: goldenrod;
+    color: #fff;
+}
+.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset .yescls
+{
+    font-size:15px;
+    border: 0px;
+    border-radius: 15px;
+    padding: 5px;
+    color: #FFFFFF;
+    width: 100px;
+    background: #90C93E;
+    
+}
+.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset .nocls
+{
+    font-size:15px;
+    border: 0px;
+    padding: 5px;
+    border-radius: 15px;
+    color: #FFFFFF;
+    width: 100px;
+    background: #F86379;
+    
+}
+
+.blog-date{
+    font-size: 14px;
+    font-family: 'League Spartan', sans-serif;
+}
+.blog-heading{
+    font-family: 'League Spartan', sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.blog-text{
+    font-size: 22px;
+    text-align: justify;
+    font-family: 'League Spartan', sans-serif;
+}
+#blog-btn{
+    font-size: 19px;
+    font-family: 'League Spartan', sans-serif;
+}
 @media (max-width: 992px) and (min-width: 768px) {
     #mainborder {
         margin-top: 90px !important;

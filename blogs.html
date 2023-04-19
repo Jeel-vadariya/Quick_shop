@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Signup</title>
+    <title>Blogs</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,9 +11,9 @@
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 
-    <!-- Toastr CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
@@ -31,7 +31,7 @@
     <header>
         <!-- place navbar here -->
         <nav class="navbar navbar-expand-lg bg-white fixed-top">
-            <div class="container-fluid">
+            <div class="container-fluid main-container">
                 <img class="navbar-brand img-fluid home_logo" src="./Assets/img/logo.jpg" alt="logo">
 
                 <div class="navbar-toggler" type="button" data-bs-toggle="collapse" id="nav_button"
@@ -47,7 +47,7 @@
                             <a class="nav-link menu_item" href="./products.html">Products</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link menu_item" href="./blogs.html">Blogs</a>
+                            <a class="nav-link menu_item active" href="#">Blogs</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link menu_item" href="#">Profile</a>
@@ -56,7 +56,7 @@
                             <a class="nav-link menu_item" href="./login.html">Login</a>
                         </li>
                         <li class="nav-item" id="signup_nav">
-                            <a class="nav-link menu_item active" href="#">Signup</a>
+                            <a class="nav-link menu_item" href="./signup.html">Signup</a>
                         </li>
                     </ul>
                     <form class="d-flex">
@@ -65,72 +65,89 @@
                     </form>
                     <ul class="navbar-nav mb-2 mb-lg-0 menu d-block align-items-end ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link menu_item" href="#"><i class="fa fa-shopping-cart cart" aria-hidden="true"></i> Cart</a>
+                            <a class="nav-link menu_item" href="#"><i class="fa fa-shopping-cart cart"
+                                    aria-hidden="true"></i> Cart</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <main class="mt-5 pt-4">
-        <div class="container px-5 pt-2 mt-3 border border-primary border-opacity-50 rounded-5" id="mainborder_signup">
-            <div class="row">
-                <div class="col-md-6 mt-5">
-                    <img src="./Assets/img/4957136.jpg" alt="signup" class="img-fluid" id="signup_img">
+    <main class="pt-5 mt-5">
+        <div class="container text-dark">
+            <div class="col">
+                <div class="row mb-4">
+                    <div class="col-4">
+                        <img alt="img" src="./Assets/img/blog-1.jpg" class="img-fluid">
+                    </div>
+                    <div class="col-8">
+                        <div class="mt-2 blog-heading">According To 4 Female Financial Experts</div>
+                        <div class="text-muted blog-date">DECEMBER 21, 2021&nbsp; |&nbsp; SHOES &nbsp;|&nbsp; 0 COMMENTS
+                            &nbsp;|&nbsp; VIEWS (1260) &nbsp;|&nbsp; DEMO DEMO</div>
+                        <div class="text-dark mt-3 blog-text">Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Beatae voluptatem ex, quo nulla possimus ullam similique reiciendis praesentium, ipsam
+                            adipisci vel quasi fuga alias voluptatibus aspernatur cumque nesciunt cupiditate laborum
+                            facere earum natus. Consequuntur officia repellendus doloribus repudiandae, natus ullam
+                            ipsam. Nisi fuga rem iusto voluptatem, eius suscipit eos est, velit aspernatur eaque
+                            explicabo adipisci cum laborum doloremque illo ex. . .</div>
+                        <button aria-label="btn" class="btn btn-primary mt-3 px-4" id="blog-btn">View More</button>
+                    </div>
                 </div>
-                <div class="col-md-6 p-0 ps-4" id="signup_part">
-                    <h2 class="text-center" id="signup_name">Sign Up</h2>
-                    <form id="form" name="form" method="post" onsubmit="validateInputs(event)">
-                        <input type="hidden" name="num" id="num">   
-                        <div class="mt-4 field input-control">
-                            <lable for="fname" class="form-label" id="fname_name">Full Name:</lable>
-                            <input type="text" id="fname" name="fname" placeholder="Enter your full name"
-                                class="mt-1 form-control border border-primary border-opacity-50" onclick="click()">
-                            <div class="error"></div>
+                <div class="row mb-4">
+                    <div class="col-4">
+                        <img alt="img" src="./Assets/img/blog-2.jpg" class="img-fluid">
+                    </div>
+                    <div class="col-8">
+                        <div class="mt-2 blog-heading">How To Be “Good With Money” According To 4 Female Financial Experts
                         </div>
-                        <div class="mt-4 field input-control">
-                            <lable for="emailid" class="form-label" id="emailid_name">Email-id:</lable>
-                            <input type="text" id="emailid" name="emailid" placeholder="Enter your email-id"
-                                class="mt-1 form-control border border-primary border-opacity-50">
-                            <div class="error"></div>
-                        </div>
-                        <div class="mt-4">
-                            <lable for="password" class="form-label" id="password_name">Password:</lable>
-                            <div class="field input-control input-group">
-                                <input type="password" id="password" name="password" placeholder="Enter your password"
-                                    class="mt-1 form-control border border-primary border-opacity-50">
-                                <i class="fa fa-eye-slash input-group-text eye-btn" aria-hidden="true" id="toggle_pass"></i>
-                                <div class="error w-100"></div>
-                            </div>
-                        </div>
-                        <div class="mt-4">
-                            <lable for="confirm-password" class="form-label" id="confirmpassword_name">Confirm Password:</lable>
-                            <div class="field input-control input-group">
-                                <input type="password" id="confirm-password" name="confirmpassword"
-                                    placeholder="Re-enter your password"
-                                    class="mt-1 form-control border border-primary border-opacity-50">
-                                <i class="fa fa-eye-slash input-group-text eye-btn" aria-hidden="true" id="toggle_confirm_pass"></i>
-                                <div class="error w-100"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="text-center mt-4 field_btn">
-                            <button type="submit" class="btn btn-outline-primary px-5 submit_btn"
-                                id="signupbtn" >Submit</button>
-                        </div>
-                        <div class="text-center mt-4 field">
-                            <p id="question">Already have an account?<a class="text-primary text-decoration-none" id="login"
-                                    href="./login.html"> Login</a></p>
-                        </div>
-                    </form>
-                    <ul class="messages"></ul>
+                        <div class="text-muted blog-date">SEPTEMBER 06, 2021&nbsp; |&nbsp; SHOES &nbsp;|&nbsp; 3 COMMENTS
+                            &nbsp;|&nbsp; VIEWS (109) &nbsp;|&nbsp; DEMO DEMO</div>
+                        <div class="text-dark mt-3 blog-text">Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Beatae voluptatem ex, quo nulla possimus ullam similique reiciendis praesentium, ipsam
+                            adipisci vel quasi fuga alias voluptatibus aspernatur cumque nesciunt cupiditate laborum
+                            facere earum natus. Consequuntur officia repellendus doloribus repudiandae, natus ullam
+                            ipsam. Nisi fuga rem iusto voluptatem. . .</div>
+                        <button aria-label="btn" class="btn btn-primary mt-3 px-4" id="blog-btn">View More</button>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-4">
+                        <img alt="img" src="./Assets/img/blog-3.jpg" class="img-fluid">
+                    </div>
+                    <div class="col-8">
+                        <div class="mt-2 blog-heading">This Scandi Influencer’s Shoe Collaboration Is The Gift That Keeps On Giving</div>
+                        <div class="text-muted blog-date">JUNE 15, 2020&nbsp; |&nbsp; SHOES &nbsp;|&nbsp; 10 COMMENTS
+                            &nbsp;|&nbsp; VIEWS (532) &nbsp;|&nbsp; DEMO DEMO</div>
+                        <div class="text-dark mt-3 blog-text">Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Beatae voluptatem ex, quo nulla possimus ullam similique reiciendis praesentium, ipsam
+                            adipisci vel quasi fuga alias voluptatibus aspernatur cumque nesciunt cupiditate laborum
+                            facere earum natus. Consequuntur officia repellendus doloribus repudiandae, natus ullam
+                            ipsam. Nisi fuga rem iusto voluptatem, eius suscipit eos est, velit aspernatur eaque
+                            . . .</div>
+                        <button aria-label="btn" class="btn btn-primary mt-3 px-4" id="blog-btn">View More</button>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-4">
+                        <img alt="img" src="./Assets/img/blog-4.jpg" class="img-fluid">
+                    </div>
+                    <div class="col-8">
+                        <div class="mt-2 blog-heading">This Scandi Influencer’s Shoe Collaboration Is The Gift That Keeps On Giving</div>
+                        <div class="text-muted blog-date">AUGUST 29, 2019&nbsp; |&nbsp; CLOTHE &nbsp;|&nbsp; 7 COMMENTS
+                            &nbsp;|&nbsp; VIEWS (1583) &nbsp;|&nbsp; DEMO DEMO</div>
+                        <div class="text-dark mt-3 blog-text">Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Beatae voluptatem ex, quo nulla possimus ullam similique reiciendis praesentium, ipsam
+                            adipisci vel quasi fuga alias voluptatibus aspernatur cumque nesciunt cupiditate laborum
+                            facere earum natus. Consequuntur officia repellendus doloribus repudiandae, natus ullam
+                            ipsam. Nisi fuga rem iusto voluptatem, eius suscipit eos est, velit aspernatur eaque
+                            Beatae voluptatem ex, quo nulla possimus ullam similique reiciendis praesentium, ipsam
+                            adipisci vel. . .</div>
+                        <button aria-label="btn" class="btn btn-primary mt-3 px-4" id="blog-btn">View More</button>
+                    </div>
                 </div>
             </div>
-    
         </div>
     </main>
-    <!-- <div class="mt-2"><img src="./Assets/img/logo.jpg" alt="logo" class="img-fluid logo mx-auto d-block"></div> -->
-    
     <footer class="mt-4">
         <!-- place footer here -->
         <div class="container-fluid">
@@ -210,16 +227,23 @@
                             launches and exclusive offers!</p>
                         <h5 class="border-bottom">Visit us:</h5>
                         <ul class="list-unstyled list-inline">
-                            <li class="list-inline-item me-3 h5"><a href="http://facebook.com/" aria-label="facebook" target="_blank" rel="noopener noreferrer"><i class="fa fa-facebook text-white li_hover" aria-hidden="true"></i></a></li>
-                            <li class="list-inline-item me-3 h5"><a href="http://instagram.com/" aria-label="instagram" target="_blank" rel="noopener noreferrer"><i class="fa fa-instagram text-white li_hover" aria-hidden="true"></i></a></li>
-                            <li class="list-inline-item h5"><a href="http://twitter.com/" aria-label="twitter" target="_blank" rel="noopener noreferrer"><i class="fa fa-twitter text-white li_hover" aria-hidden="true"></i></a></li>
+                            <li class="list-inline-item me-3 h5"><a href="http://facebook.com/" aria-label="facebook"
+                                    target="_blank" rel="noopener noreferrer"><i
+                                        class="fa fa-facebook text-white li_hover" aria-hidden="true"></i></a></li>
+                            <li class="list-inline-item me-3 h5"><a href="http://instagram.com/" aria-label="instagram"
+                                    target="_blank" rel="noopener noreferrer"><i
+                                        class="fa fa-instagram text-white li_hover" aria-hidden="true"></i></a></li>
+                            <li class="list-inline-item h5"><a href="http://twitter.com/" aria-label="twitter"
+                                    target="_blank" rel="noopener noreferrer"><i
+                                        class="fa fa-twitter text-white li_hover" aria-hidden="true"></i></a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
         <div class="container-fluid text-center bg-primary text-white py-2">
-            <p class="m-0">@Copyright <a class="h6 text-white text-decoration-none li_hover" href="#">Quick Shop.</a> All Rights Reserved.</p>
+            <p class="m-0">@Copyright <a class="h6 text-white text-decoration-none li_hover" href="#">Quick Shop.</a>
+                All Rights Reserved.</p>
         </div>
     </footer>
     <!-- Bootstrap JavaScript Libraries -->
@@ -230,13 +254,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
         integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
         </script>
-
-<script src="./Assets/js/script.js"></script>
-<script src="./Assets/js/localstorage.js"></script>
-<script src="./Assets/js/apiscript.js"></script>
-<script src="./Assets/js/message.js"></script>
-<script src="./Assets/js/api.js"></script>
-    <!-- <script src="./Assets/js/localstorage.js"></script> -->
 </body>
 
 </html>

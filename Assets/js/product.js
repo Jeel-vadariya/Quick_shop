@@ -4,10 +4,8 @@ var productAPI = `http://192.168.1.164:4000/api/product`;
     fetch(productAPI)
       .then(response => response.json())
       .then(data => {
-        console.log('data:', data);
 
         var products = data.products;
-
 
         products.forEach(product => {
           const productCardHtml = `
@@ -27,6 +25,7 @@ var productAPI = `http://192.168.1.164:4000/api/product`;
 
       `;
 
-          productList.insertAdjacentHTML('beforeend', productCardHtml);
+          productList.insertAdjacentHTML('beforeend', productCardHtml); 
         });
+        Checkuser();
       });

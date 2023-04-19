@@ -16,7 +16,7 @@ function apicalling() {
                     location.href = "http://localhost:8090/project/login.html";
                 },
                 error: function (xhr, textStatus, errorThrown) {
-                    console.log(message.SIGNUP_ERROR);
+                    toastr.error(message.SIGNUP_ERROR);
                 },
                 timeout: 5000
             });
@@ -30,8 +30,7 @@ function loginapi() {
         $("#loginbtn").click(function () {
             var person = new Object();
             person.email = $('#emailid').val(),
-            person.password = $('#password').val()
-            alert("hello");  
+            person.password = $('#password').val()  
             $.ajax({
                 url: API + LOGIN_URL,
                 type: 'POST',
@@ -42,7 +41,7 @@ function loginapi() {
                     loginstorage();
                 },
                 error: function (xhr, textStatus, errorThrown) {
-                    console.log(message.LOGIN_ERROR);
+                    toastr.error(message.LOGIN_ERROR);
                 },
                 timeout: 5000
             });
@@ -56,7 +55,7 @@ function forgotpassword() {
             var person = new Object();
             person.email = $('#emailid').val()
             $.ajax({
-                url: `http://192.168.1.164:4000/api/password/forgot`,
+                url: API + FORGOT,
                 type: 'POST',
                 dataType: 'json',
                 data: person,
@@ -64,7 +63,7 @@ function forgotpassword() {
                     console.log(data);
                 },
                 error: function (xhr, textStatus, errorThrown) {
-                    console.log(message.FORGOT_ERROR);
+                    toastr.error(message.FORGOT_ERROR);
                 },
                 timeout: 5000
             });
@@ -89,9 +88,10 @@ function resetpassword() {
                 success: function (data, textStatus, xhr) {
                     console.log(data);
                     location.href = "http://localhost:8090/project/home.html";
+                    Checkuser();
                 },
                 error: function (xhr, textStatus, errorThrown) {
-                    console.log(message.RESET_ERROR);
+                    toastr.error(message.RESET_ERROR);
                 },
                 timeout: 5000
             });

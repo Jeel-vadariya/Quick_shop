@@ -6,7 +6,6 @@ const confirm_password = document.getElementById('confirm-password');
 const newpassword = document.getElementById('new-password');
 const newconfirmpassword = document.getElementById('confirm-password');
 const input = document.getElementsByTagName('input');
-const eye = document.getElementsByClassName("fa-eye-slash");
 
 const setError = (element, message) => {
     const inputControl = element.parentElement;
@@ -29,6 +28,11 @@ const setSuccess = element => {
 const isValidEmail = email => {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
+}
+
+const isValidPassword = password => {
+    const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$/;
+    return re.test(String(password))
 }
 
 const validateInputs = (event) => {
@@ -59,7 +63,7 @@ const validateInputs = (event) => {
     if (passwordValue === '') {
         setError(password, message.PASSWORD);
     }
-    else if (passwordValue.length < 8) {
+    else if (!isValidPassword(passwordValue)) {
         setError(password, message.PASSWORD_LENGTH);
     }
     else {
@@ -102,7 +106,7 @@ const validate = (event) => {
     if (passwordValue === '') {
         setError(password, message.PASSWORD);
     }
-    else if (passwordValue.length < 8) {
+    else if (!isValidPassword(passwordValue)) {
         setError(password, message.PASSWORD_LENGTH);
     }
     else {
@@ -121,7 +125,7 @@ const validatenewpassword = (event) => {
     if (newpasswordValue === '') {
         setError(newpassword, message.NEW_PASSWORD);
     }
-    else if (newpasswordValue.length < 8) {
+    else if (!isValidPassword(newpasswordValue)) {
         setError(newpassword, message.PASSWORD_LENGTH);
     }
     else {

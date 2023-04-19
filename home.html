@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
@@ -34,27 +36,28 @@
                     <span class="navbar-toggler-icon"></span>
                 </div>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mb-2 mb-lg-0 menu">
+                    <ul class="navbar-nav mb-2 mb-lg-0 menu" id="menu">
                         <li class="nav-item">
                             <a class="nav-link menu_item active" href="#">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link menu_item" href="./products.html">Products</a>
                         </li>
-                            <a class="nav-link menu_item" href="#">Blogs</a>
+                        <li class="nav-item">
+                            <a class="nav-link menu_item" href="./blogs.html">Blogs</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link menu_item" href="#">Profile</a>
+                        </li>
+                        <li class="nav-item" id="login_nav">
                             <a class="nav-link menu_item" href="./login.html">Login</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item" id="signup_nav">
                             <a class="nav-link menu_item" href="./signup.html">Signup</a>
-                        </li>
-                        <li class="nav-item me-2">
-                            <a class="nav-link menu_item" href="#">Profile</a>
                         </li>
                     </ul>
                     <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search">
+                        <input class="form-control mx-2" type="search" placeholder="Search">
                         <button class="btn btn-outline-primary" type="submit">Search</button>
                     </form>
                     <ul class="navbar-nav mb-2 mb-lg-0 menu d-block align-items-end ms-auto">
@@ -201,7 +204,10 @@
         <a class="topbtn" href="#top" aria-label="top"><i class="fa fa-long-arrow-up" aria-hidden="true"></i></a>
     </div>
 
-    <script src="./Assets/js/product.js"></script>
+    
+    <script src="./Assets/js/common.js"></script>
+    <script src="./Assets/js/home.js"></script>
+    <script src="./Assets/js/logout.js"></script>
 
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"

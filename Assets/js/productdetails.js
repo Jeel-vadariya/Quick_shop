@@ -28,7 +28,8 @@ fetch(productAPI + '/' + productId)
             
             </div>`;
             productDetails.innerHTML = productDetailsHtml;
-
+            
+            Checkuser();
             // <div class="modal-review">Reviews:</div>
             // <div class="col border border-3 card mt-2 review-box">
             // <div class="modal-review-comment row-2 ms-2">${product.product.ratings} <i class="fa fa-star me-2 text-warning" aria-hidden="true"></i>${product.product.reviews[0].comment}</div>

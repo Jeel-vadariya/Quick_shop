@@ -6,21 +6,21 @@ function loginstorage() {
     }
     if (user_data.number == '') {
         user_data["number"] = localStorage.length + 1;
-        localStorage.setItem('user_login' + user_data.number, JSON.stringify(user_data)); 
-        alert(message.LOGIN_DATA);
-        location.href = "http://localhost:8090/project/home.html";
+        localStorage.setItem('user_login', JSON.stringify(user_data));
+        toastr.success("Login successfully!");
+        // location.href = "http://localhost:8090/project/home.html";
+        Checkuser();
     }
 }
 
 document.addEventListener('click', (event) => {
     const target = event.target;
-  
-    if (target.matches('.eye-btn')) {
-      const passwordField = target.previousElementSibling;
-      const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
-      passwordField.setAttribute('type', type);
-      target.classList.toggle('fa-eye');
-      target.classList.toggle('fa-eye-slash');
-    }
-  });
 
+    if (target.matches('.eye-btn')) {
+        const passwordField = target.previousElementSibling;
+        const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordField.setAttribute('type', type);
+        target.classList.toggle('fa-eye');
+        target.classList.toggle('fa-eye-slash');
+    }
+});
