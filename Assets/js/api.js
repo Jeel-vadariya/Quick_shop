@@ -1,5 +1,5 @@
 
-const API = `http://192.168.1.164:4000/api/`;
+const API = `http://192.168.1.30:4000/api/`;
 const REGISTER_URL = `register`;
 const LOGIN_URL = `login`;
 const FORGOT = `password/forgot`;

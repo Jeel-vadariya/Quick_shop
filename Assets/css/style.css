@@ -208,6 +208,38 @@
     font-size: 19px;
     font-family: 'League Spartan', sans-serif;
 }
+.contact-input{
+    font-family: 'League Spartan', sans-serif;
+    width: 645px;
+    min-width: 400px;
+    border-radius: 5px;
+    border: 1px solid #0074d9;
+}
+.contact-us{
+    font-family: 'League Spartan', sans-serif;
+}
+.contact-heading,
+.contact-field{
+    font-weight: bold;
+    font-size: 18px;
+}
+.contact-text{
+    font-size: 18px;
+}
+.contact-btn{
+    font-family: 'League Spartan', sans-serif;
+    width: 645px;
+    min-width: 400px;
+    font-size: 18px;
+}
+.social-media{
+    font-size: 19px;
+    color: black;
+}
+/* .contact-field{
+    width: 85px;
+    display: inline-block;
+} */
 @media (max-width: 992px) and (min-width: 768px) {
     #mainborder {
         margin-top: 90px !important;

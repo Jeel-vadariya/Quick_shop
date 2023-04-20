@@ -1,4 +1,4 @@
-var productAPI = `http://192.168.1.164:4000/api/product`;
+var productAPI = `http://192.168.1.30:4000/api/product`;
     var productList = document.querySelector('.product-list');
 
     fetch(productAPI)

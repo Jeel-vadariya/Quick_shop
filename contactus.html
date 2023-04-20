@@ -2,14 +2,19 @@
 <html lang="en">
 
 <head>
-    <title>Signup</title>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
+    <title>Login</title>
+    <!-- Required meta tags -->
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300&display=swap" rel="stylesheet">
 
     <!-- Toastr CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
@@ -31,7 +36,7 @@
     <header>
         <!-- place navbar here -->
         <nav class="navbar navbar-expand-lg bg-white fixed-top">
-            <div class="container-fluid">
+            <div class="container-fluid main-container">
                 <img class="navbar-brand img-fluid home_logo" src="./Assets/img/logo.jpg" alt="logo">
 
                 <div class="navbar-toggler" type="button" data-bs-toggle="collapse" id="nav_button"
@@ -53,13 +58,13 @@
                             <a class="nav-link menu_item" href="#">Profile</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link menu_item" href="./contactus.html">Contact Us</a>
+                            <a class="nav-link menu_item active" href="#">Contact Us</a>
                         </li>
                         <li class="nav-item" id="login_nav">
                             <a class="nav-link menu_item" href="./login.html">Login</a>
                         </li>
                         <li class="nav-item" id="signup_nav">
-                            <a class="nav-link menu_item active" href="#">Signup</a>
+                            <a class="nav-link menu_item" href="./signup.html">Signup</a>
                         </li>
                     </ul>
                     <form class="d-flex">
@@ -68,72 +73,77 @@
                     </form>
                     <ul class="navbar-nav mb-2 mb-lg-0 menu d-block align-items-end ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link menu_item" href="#"><i class="fa fa-shopping-cart cart" aria-hidden="true"></i> Cart</a>
+                            <a class="nav-link menu_item" href="#"><i class="fa fa-shopping-cart cart"
+                                    aria-hidden="true"></i> Cart</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <main class="mt-5 pt-4">
-        <div class="container px-5 pt-2 mt-3 border border-primary border-opacity-50 rounded-5" id="mainborder_signup">
+    <main class="container-fluid mt-5 pt-5">
+        <div class="col">
             <div class="row">
-                <div class="col-md-6 mt-5">
-                    <img src="./Assets/img/4957136.jpg" alt="signup" class="img-fluid" id="signup_img">
-                </div>
-                <div class="col-md-6 p-0 ps-4" id="signup_part">
-                    <h2 class="text-center" id="signup_name">Sign Up</h2>
-                    <form id="form" name="form" method="post" onsubmit="validateInputs(event)">
-                        <input type="hidden" name="num" id="num">   
-                        <div class="mt-4 field input-control">
-                            <lable for="fname" class="form-label" id="fname_name">Full Name:</lable>
-                            <input type="text" id="fname" name="fname" placeholder="Enter your full name"
-                                class="mt-1 form-control border border-primary border-opacity-50" onclick="click()">
-                            <div class="error"></div>
-                        </div>
-                        <div class="mt-4 field input-control">
-                            <lable for="emailid" class="form-label" id="emailid_name">Email-id:</lable>
-                            <input type="text" id="emailid" name="emailid" placeholder="Enter your email-id"
-                                class="mt-1 form-control border border-primary border-opacity-50">
-                            <div class="error"></div>
-                        </div>
-                        <div class="mt-4">
-                            <lable for="password" class="form-label" id="password_name">Password:</lable>
-                            <div class="field input-control input-group">
-                                <input type="password" id="password" name="password" placeholder="Enter your password"
-                                    class="mt-1 form-control border border-primary border-opacity-50">
-                                <i class="fa fa-eye-slash input-group-text eye-btn" aria-hidden="true" id="toggle_pass"></i>
-                                <div class="error w-100"></div>
-                            </div>
-                        </div>
-                        <div class="mt-4">
-                            <lable for="confirm-password" class="form-label" id="confirmpassword_name">Confirm Password:</lable>
-                            <div class="field input-control input-group">
-                                <input type="password" id="confirm-password" name="confirmpassword"
-                                    placeholder="Re-enter your password"
-                                    class="mt-1 form-control border border-primary border-opacity-50">
-                                <i class="fa fa-eye-slash input-group-text eye-btn" aria-hidden="true" id="toggle_confirm_pass"></i>
-                                <div class="error w-100"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="text-center mt-4 field_btn">
-                            <button type="submit" class="btn btn-outline-primary px-5 submit_btn"
-                                id="signupbtn" >Submit</button>
-                        </div>
-                        <div class="text-center mt-4 field">
-                            <p id="question">Already have an account?<a class="text-primary text-decoration-none" id="login"
-                                    href="./login.html"> Login</a></p>
-                        </div>
-                    </form>
-                    <ul class="messages"></ul>
-                </div>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d29376.50401869904!2d72.535676!3d23.02145885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x395e84e4cedbe563%3A0xc1c0c8598aef472a!2sTechcronus%20Business%20Solutions%20Pvt.%20Ltd.%2C%20B-821%2C%20Stratum%20%40%20Venus%20Grounds%20Jhansi%20Ki%20Rani%2C%20Surendra%20mangaldas%20road%2C%20Satellite%20Rd%2C%20Nehru%20Nagar%2C%20Ahmedabad%2C%20Gujarat%20380015!3m2!1d23.02199!2d72.53459699999999!5e0!3m2!1sen!2sin!4v1681987841327!5m2!1sen!2sin"
+                    width="auto" height="500" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade" title="myplace" class="d-block mx-auto"></iframe>
             </div>
-    
-        </div>
+            <div class="row d-block mx-auto contact-us">
+                <div class="container mb-5">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="mt-5">
+                                <div class="contact-heading">ADDRESS:</div>
+                                <div class="contact-text">Techcronus Business Solutions Pvt. Ltd.
+        
+                                    B-821, Stratum @Venus Ground, Nehrunagar, Ahmedabad - 380015, India</div>
+                            </div>
+                            <div class="mt-3">
+                                <div class="contact-heading">PHONE NO.:</div>
+                                <div class="contact-text">+91 12345 67890</div>
+                            </div>
+                            <div class="mt-3">
+                                <div class="contact-heading">EMAIL ADDRESS:</div>
+                                <div class="contact-text">Techcronus@techcronus.com</div>
+                            </div>
+                            <div class="mt-3">
+                                <div class="contact-heading">SOCIAL:</div>
+                                <ul class="list-unstyled d-flex">
+                                    <a href="https://www.facebook.com/Techcronus" aria-label="sociallink" class="me-2 social-media"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                    <a href="https://www.linkedin.com/company/techcronus-india/mycompany" aria-label="sociallink" class="me-2 social-media"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                                    <a href="https://www.instagram.com/techcronus/?hl=en" aria-label="sociallink" class="me-2 social-media"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <form class="d-flex flex-column mt-5">
+                                <div class="d-block mx-auto">
+                                    <label for="name" class="contact-field form-label">Name:</label>
+                                    <input type="text" id="name" name="name" class="contact-input form-control">
+                                </div>
+                                <div class="d-block mx-auto mt-4">
+                                    <label for="email" class="contact-field form-label">Email:</label>
+                                    <input type="email" id="email" name="email" class="contact-input form-control">
+                                </div>
+                                <div class="d-block mx-auto mt-4">
+                                    <label for="message" class="contact-field form-label">Comment:</label>
+                                    <textarea id="message" name="message" class="contact-input form-control"></textarea>
+                                </div>
+                                <div class="d-block mx-auto">
+                                    <button type="submit" class="btn btn-outline-primary mt-4 contact-btn"
+                                        aria-label="btn">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                    </div>
+                    
+                </div>
+                
+
     </main>
-    <!-- <div class="mt-2"><img src="./Assets/img/logo.jpg" alt="logo" class="img-fluid logo mx-auto d-block"></div> -->
-    
     <footer class="mt-4">
         <!-- place footer here -->
         <div class="container-fluid">
@@ -213,18 +223,29 @@
                             launches and exclusive offers!</p>
                         <h5 class="border-bottom">Visit us:</h5>
                         <ul class="list-unstyled list-inline">
-                            <li class="list-inline-item me-3 h5"><a href="http://facebook.com/" aria-label="facebook" target="_blank" rel="noopener noreferrer"><i class="fa fa-facebook text-white li_hover" aria-hidden="true"></i></a></li>
-                            <li class="list-inline-item me-3 h5"><a href="http://instagram.com/" aria-label="instagram" target="_blank" rel="noopener noreferrer"><i class="fa fa-instagram text-white li_hover" aria-hidden="true"></i></a></li>
-                            <li class="list-inline-item h5"><a href="http://twitter.com/" aria-label="twitter" target="_blank" rel="noopener noreferrer"><i class="fa fa-twitter text-white li_hover" aria-hidden="true"></i></a></li>
+                            <li class="list-inline-item me-3 h5"><a href="http://facebook.com/" aria-label="facebook"
+                                    target="_blank" rel="noopener noreferrer"><i
+                                        class="fa fa-facebook text-white li_hover" aria-hidden="true"></i></a></li>
+                            <li class="list-inline-item me-3 h5"><a href="http://instagram.com/" aria-label="instagram"
+                                    target="_blank" rel="noopener noreferrer"><i
+                                        class="fa fa-instagram text-white li_hover" aria-hidden="true"></i></a></li>
+                            <li class="list-inline-item h5"><a href="http://twitter.com/" aria-label="twitter"
+                                    target="_blank" rel="noopener noreferrer"><i
+                                        class="fa fa-twitter text-white li_hover" aria-hidden="true"></i></a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
         <div class="container-fluid text-center bg-primary text-white py-2">
-            <p class="m-0">@Copyright <a class="h6 text-white text-decoration-none li_hover" href="#">Quick Shop.</a> All Rights Reserved.</p>
+            <p class="m-0">@Copyright <a class="h6 text-white text-decoration-none li_hover" href="#">Quick Shop.</a>
+                All Rights Reserved.</p>
         </div>
     </footer>
+    
+    <script src="./Assets/js/home.js"></script>
+    <script src="./Assets/js/logout.js"></script>
+    <script src="./Assets/js/common.js"></script>
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
@@ -234,12 +255,6 @@
         integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
         </script>
 
-<script src="./Assets/js/script.js"></script>
-<script src="./Assets/js/localstorage.js"></script>
-<script src="./Assets/js/apiscript.js"></script>
-<script src="./Assets/js/message.js"></script>
-<script src="./Assets/js/api.js"></script>
-    <!-- <script src="./Assets/js/localstorage.js"></script> -->
 </body>
 
 </html>
