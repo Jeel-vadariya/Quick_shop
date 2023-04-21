@@ -79,10 +79,55 @@
         </div>
         <div class="main mt-2">
             <div class="container-fluid">
-                <div class="row product-list mt-2">
-            
+                <div class="row">
+                  <div class="col-3">
+                    <div class="mt-2 border border-1 rounded-3 p-2 filter-border">
+                      <h6><i class="fa fa-sliders" aria-hidden="true"></i> FILTER BY</h6>
+                      <hr class="border border-primary m-0">
+                      <div class="mt-2 ms-3"><span class="filters-name"><i class="fa fa-align-left" aria-hidden="true"></i>
+                          CATEGORIES</span>
+                        <ul class="cat">
+                          <li class="mb-1 cat-type"><a onclick="filterProduct(`men's clothing`)">Men</a></li>
+                          <li class="mb-1 cat-type"><a onclick="filterProduct(`women's clothing`)">Women</a></li>
+                          <li class="mb-1 cat-type"><a onclick="filterProduct('Kids')">Kids</a></li>
+                          <li class="mb-1 cat-type"><a onclick="filterProduct('jewelery')">Jewelery</a></li>
+                          <li class="mb-1 cat-type"><a onclick="filterProduct(`Bags & Footwear`)">Bags & Footwear</a></li>
+                          <li class="mb-1 cat-type"><a onclick="filterProduct(`Beauty & Health`)">Beauty & Health</a></li>
+                          <li class="mb-1 cat-type"><a onclick="filterProduct('electronics')">Electronics</a></li>
+                        </ul>
+        
+        
+                      </div>
+                      <div class="mt-2 ms-3"><span class="filters-name"><i class="fa fa-align-left" aria-hidden="true"></i>
+                          PRICE</span>
+                        <ul class="price">
+                          <li class="mb-1 mt-2 price-type"><a onclick="rangeproduct(10, 1000)">₹10 - ₹1,000</a></li>
+                          <li class="mb-1 price-type"><a onclick="rangeproduct(1000, 5000)">₹1,000 - ₹5,000</a></li>
+                          <li class="mb-1 price-type"><a onclick="rangeproduct(5000, 10000)">₹5,000 - ₹10,000</a></li>
+                          <li class="mb-1 price-type"><a onclick="rangeproduct(10000, Infinity)">₹10,000+</a></li>
+                        </ul>
+                      </div>
+                    </div>
+        
+                  </div>
+                  <div class="col-9">
+                    <div class="row product-list mt-2">
+        
+                    </div>
+                  </div>
+                  <div class="d-block mx-auto text-center mt-5">
+                    <div class="pagination">
+                      <a href="#">&laquo;</a>
+                      <a href="#" class="active_page">1</a>
+                      <a href="#">2</a>
+                      <a href="#">3</a>
+                      <a href="#">4</a>
+                      <a href="#">&raquo;</a>
+                    </div>
+                  </div>
                 </div>
-            </div>
+        
+              </div>
 
             <!-- <button class="cart-button">Cart</button> -->
         </div>
@@ -191,7 +236,8 @@
         <a class="topbtn" href="#top" aria-label="top"><i class="fa fa-long-arrow-up" aria-hidden="true"></i></a>
     </div>
 
-    <script src="./Assets/js/product.js"></script>  
+    <script src="./Assets/js/api.js"></script>  
+    <script src="./Assets/js/product.js"></script>
     <script src="./Assets/js/common.js"></script>
     <script src="./Assets/js/localstorage.js"></script>
     <script src="./Assets/js/logout.js"></script>

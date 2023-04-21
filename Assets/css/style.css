@@ -210,7 +210,7 @@
 }
 .contact-input{
     font-family: 'League Spartan', sans-serif;
-    width: 645px;
+    width: 700px;
     min-width: 400px;
     border-radius: 5px;
     border: 1px solid #0074d9;
@@ -228,7 +228,7 @@
 }
 .contact-btn{
     font-family: 'League Spartan', sans-serif;
-    width: 645px;
+    width: 700px;
     min-width: 400px;
     font-size: 18px;
 }
@@ -236,10 +236,55 @@
     font-size: 19px;
     color: black;
 }
-/* .contact-field{
-    width: 85px;
+.contact-msg{
+    height: 120px;
+    font-family: 'League Spartan', sans-serif;
+    width: 700px;
+    min-width: 400px;
+    border-radius: 5px;
+    border: 1px solid #0074d9;
+}
+.contact-detail:hover{
+    color: #0074d9 !important;
+    cursor: pointer;
+}
+.filters-name {
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .cat,
+  .price {
+    list-style: none;
+    font-size: 13px;
+  }
+
+  .cat-type:hover,
+  .price-type:hover {
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  .pagination {
     display: inline-block;
-} */
+  }
+
+  .pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+  }
+
+  .pagination a.active_page {
+    background-color: #0074d9;
+    ;
+    color: white;
+  }
+
+  .pagination a:hover:not(.active_page) {
+    background-color: #ddd;
+  }
 @media (max-width: 992px) and (min-width: 768px) {
     #mainborder {
         margin-top: 90px !important;
