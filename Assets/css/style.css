@@ -10,8 +10,14 @@
 .details-card{
     max-width: 1200px;
 }
-.main, main{
+.main{
     min-height: 49.7vh;
+}
+main{
+    min-height: 46.4vh;
+}
+.cart-products{
+    justify-items: center;
 }
 .modal-discription{
     font-size: 20px;
@@ -24,10 +30,12 @@
 .review-box{
     width: 17%;
 }
-.card{
+.card, .cart-item{
     box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.306);
 }
-
+.cart-item{
+    /* height: 220px; */
+}
 .header {
     height: 70px;
 }
@@ -249,14 +257,14 @@
     cursor: pointer;
 }
 .filters-name {
-    font-size: 13px;
+    font-size: 16px;
     font-weight: 500;
   }
 
   .cat,
   .price {
     list-style: none;
-    font-size: 13px;
+    font-size: 15px;
   }
 
   .cat-type:hover,

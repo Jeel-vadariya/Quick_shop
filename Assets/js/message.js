@@ -9,6 +9,9 @@ const message = {
     MATCH_PASSWORD: "password doesn't match",
     NEW_PASSWORD: "New password is required",
     NEW_CONFIRM_PASSWORD: "Confirm new password is required",
+    OTP: "OTP is required",
+    OTP_VALID: "OTP must be 4 character",
+    OTP_NUMBER: "OTP must be in numbers",
 
     // toastr error message
     SIGNUP_ERROR: "Signup failed!",

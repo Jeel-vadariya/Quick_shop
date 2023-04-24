@@ -87,7 +87,7 @@ function resetpassword() {
                 data: person,
                 success: function (data, textStatus, xhr) {
                     console.log(data);
-                    location.href = "http://localhost:8090/project/home.html";
+                    location.href = "http://localhost:8090/project/login.html";
                     Checkuser();
                 },
                 error: function (xhr, textStatus, errorThrown) {

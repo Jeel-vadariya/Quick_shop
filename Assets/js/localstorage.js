@@ -8,7 +8,7 @@ function loginstorage() {
         user_data["number"] = localStorage.length + 1;
         localStorage.setItem('user_login', JSON.stringify(user_data));
         toastr.success("Login successfully!");
-        // location.href = "http://localhost:8090/project/home.html";
+        location.href = "http://localhost:8090/project/home.html";
         Checkuser();
     }
 }

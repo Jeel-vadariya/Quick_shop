@@ -1,5 +1,5 @@
 var currentPage = 1;
-    var productAPI = `http://192.168.1.30:4000/api/product?page=${currentPage}`;
+    var productAPI = `http://192.168.1.228:4000/api/product?page=${currentPage}`;
     var productList = document.querySelector('.product-list');
     var paginationLinks = document.querySelectorAll('.pagination a');
 
@@ -39,18 +39,18 @@ var currentPage = 1;
         if (link.innerHTML === '&laquo;') {
           if (currentPage > 1) {
             currentPage--;
-            productAPI = `http://192.168.1.30:4000/api/product?page=${currentPage}`;
+            productAPI = `http://192.168.1.228:4000/api/product?page=${currentPage}`;
             renderProducts();
           }
         } else if (link.innerHTML === '&raquo;') {
           if (currentPage < 4) { // Assuming there are 4 pages in total
             currentPage++;
-            productAPI = `http://192.168.1.30:4000/api/product?page=${currentPage}`;
+            productAPI = `http://192.168.1.228:4000/api/product?page=${currentPage}`;
             renderProducts();
           }
         } else {
           currentPage = parseInt(link.innerHTML);
-          productAPI = `http://192.168.1.30:4000/api/product?page=${currentPage}`;
+          productAPI = `http://192.168.1.228:4000/api/product?page=${currentPage}`;
           renderProducts();
         }
 

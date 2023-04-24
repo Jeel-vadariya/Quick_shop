@@ -3,6 +3,7 @@ const fullname = document.getElementById('fname');
 const email = document.getElementById('emailid');
 const password = document.getElementById('password');
 const confirm_password = document.getElementById('confirm-password');
+const otp = document.getElementById('otp');
 const newpassword = document.getElementById('new-password');
 const newconfirmpassword = document.getElementById('confirm-password');
 const input = document.getElementsByTagName('input');
@@ -118,6 +119,7 @@ const validate = (event) => {
 const validatenewpassword = (event) => {
 
     event.preventDefault();
+    const otpValue = otp.value.trim();
     const newpasswordValue = newpassword.value.trim();
     const newconfirmpasswordValue = newconfirmpassword.value.trim();
 
@@ -141,6 +143,13 @@ const validatenewpassword = (event) => {
     else {
         setSuccess(newconfirmpassword);
         resetpassword();
+    }
+
+    if(otpValue === ''){
+        setError(otp, message.OTP);
+    }
+    else{
+        setSuccess(otp);
     }
 }
 
