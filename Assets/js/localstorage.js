@@ -1,17 +1,20 @@
-function loginstorage() {
-    var user_data = {
-        number: document.forms["form"]["num"].value,
-        emailid: document.forms["form"]["emailid"].value,
-        password: document.forms["form"]["password"].value
+function loginstorage(data) {
+   
+    const userData = {
+        user: data.user,
+        token: data.token,
+      };
+    localStorage.setItem('userData', JSON.stringify(userData)); 
+    toastr.success("Login successfully!");
+    location.href = "http://localhost:8090/project/home.html";
+    Checkuser();
     }
-    if (user_data.number == '') {
-        user_data["number"] = localStorage.length + 1;
-        localStorage.setItem('user_login', JSON.stringify(user_data));
-        toastr.success("Login successfully!");
-        location.href = "http://localhost:8090/project/home.html";
-        Checkuser();
-    }
-}
+
+// var user_data = {
+//     number: document.forms["form"]["num"].value,
+//     emailid: document.forms["form"]["emailid"].value,
+//     password: document.forms["form"]["password"].value
+// }
 
 document.addEventListener('click', (event) => {
     const target = event.target;

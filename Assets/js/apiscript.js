@@ -13,7 +13,7 @@ function apicalling() {
                 data: person,
                 success: function (data, textStatus, xhr) {
                     console.log(data);
-                    location.href = "http://localhost:8090/project/login.html";
+                    // location.href = "http://localhost:8090/project/login.html";
                 },
                 error: function (xhr, textStatus, errorThrown) {
                     toastr.error(message.SIGNUP_ERROR);
@@ -38,7 +38,7 @@ function loginapi() {
                 data: person,
                 success: function (data, textStatus, xhr) {
                     console.log(data);
-                    loginstorage();
+                    loginstorage(data);
                 },
                 error: function (xhr, textStatus, errorThrown) {
                     toastr.error(message.LOGIN_ERROR);
@@ -77,8 +77,9 @@ function resetpassword() {
         $("#resetbtn").click(function () {
             var person = new Object();
             const token = window.location.href.split('=')[1];
-            person.password = $('#password').val(),
-            person.confirmPassword = $('#confirm_password').val()
+            person.otp = $('#otp').val();
+            person.password = $('#new-password').val(),
+            person.confirmPassword = $('#confirm-password').val()
                 console.log(person);
             $.ajax({
                 url: API + RESET,

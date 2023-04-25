@@ -10,7 +10,7 @@ function logout() {
                     text: 'Yes',
                     open: function () { $(this).addClass('yescls') },
                     click: function () {
-                        localStorage.removeItem('user_login');
+                        localStorage.removeItem('userData');
                         location.reload();
                         location.href = "http://localhost:8090/project/login.html";
                     }
@@ -24,12 +24,3 @@ function logout() {
         });
     });
 }
-
-// function logout() {
-//     if (confirm("Are you sure you want to logout?")) {
-//         localStorage.removeItem('user_login');
-//         location.reload();
-//         location.href = "http://localhost:8090/project/login.html";
-//     }
-
-// }

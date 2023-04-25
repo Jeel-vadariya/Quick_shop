@@ -30,7 +30,7 @@ main{
 .review-box{
     width: 17%;
 }
-.card, .cart-item{
+.card, .cart-item, .profile-box{
     box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.306);
 }
 .cart-item{
@@ -292,6 +292,9 @@ main{
 
   .pagination a:hover:not(.active_page) {
     background-color: #ddd;
+  }
+  #input-profile-name:hover, #input-profile-email:hover, #input-profile-createdate:hover{
+    border: 1px solid #99bdf1;
   }
 @media (max-width: 992px) and (min-width: 768px) {
     #mainborder {

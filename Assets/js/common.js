@@ -1,5 +1,5 @@
 function Checkuser() {
-    var user_data = localStorage.getItem('user_login');
+    var user_data = localStorage.getItem('userData');
     if (user_data != null) {
         var login_li = document.getElementById("login_nav");
         var signup_li = document.getElementById("signup_nav");
