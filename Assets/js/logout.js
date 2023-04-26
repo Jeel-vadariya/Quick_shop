@@ -11,6 +11,7 @@ function logout() {
                     open: function () { $(this).addClass('yescls') },
                     click: function () {
                         localStorage.removeItem('userData');
+                        localStorage.removeItem('cart');
                         location.reload();
                         location.href = "http://localhost:8090/project/login.html";
                     }

@@ -6,15 +6,11 @@ function loginstorage(data) {
       };
     localStorage.setItem('userData', JSON.stringify(userData)); 
     toastr.success("Login successfully!");
-    location.href = "http://localhost:8090/project/home.html";
+    setTimeout(function(){
+        window.location.href = 'home.html';
+      }, 500);
     Checkuser();
     }
-
-// var user_data = {
-//     number: document.forms["form"]["num"].value,
-//     emailid: document.forms["form"]["emailid"].value,
-//     password: document.forms["form"]["password"].value
-// }
 
 document.addEventListener('click', (event) => {
     const target = event.target;

@@ -13,7 +13,7 @@ function apicalling() {
                 data: person,
                 success: function (data, textStatus, xhr) {
                     console.log(data);
-                    // location.href = "http://localhost:8090/project/login.html";
+                    location.href = "http://localhost:8090/project/login.html";
                 },
                 error: function (xhr, textStatus, errorThrown) {
                     toastr.error(message.SIGNUP_ERROR);
@@ -30,7 +30,7 @@ function loginapi() {
         $("#loginbtn").click(function () {
             var person = new Object();
             person.email = $('#emailid').val(),
-            person.password = $('#password').val()  
+                person.password = $('#password').val()
             $.ajax({
                 url: API + LOGIN_URL,
                 type: 'POST',
@@ -61,6 +61,10 @@ function forgotpassword() {
                 data: person,
                 success: function (data, textStatus, xhr) {
                     console.log(data);
+                    toastr.success("OTP successfully sent to your email!");
+                    setTimeout(function () {
+                        window.location.href = 'reset_password.html';
+                    }, 500);
                 },
                 error: function (xhr, textStatus, errorThrown) {
                     toastr.error(message.FORGOT_ERROR);
@@ -72,15 +76,15 @@ function forgotpassword() {
 };
 
 
-function resetpassword() {  
+function resetpassword() {
     $(document).ready(function () {
         $("#resetbtn").click(function () {
             var person = new Object();
             const token = window.location.href.split('=')[1];
             person.otp = $('#otp').val();
             person.password = $('#new-password').val(),
-            person.confirmPassword = $('#confirm-password').val()
-                console.log(person);
+                person.confirmPassword = $('#confirm-password').val()
+            console.log(person);
             $.ajax({
                 url: API + RESET,
                 type: 'PUT',
@@ -88,7 +92,10 @@ function resetpassword() {
                 data: person,
                 success: function (data, textStatus, xhr) {
                     console.log(data);
-                    location.href = "http://localhost:8090/project/login.html";
+                    toastr.success("Password successfully changed!");
+                    setTimeout(function () {
+                        window.location.href = 'login.html';
+                    }, 500);
                     Checkuser();
                 },
                 error: function (xhr, textStatus, errorThrown) {

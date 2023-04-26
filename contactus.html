@@ -33,6 +33,7 @@
 </head>
 
 <body>
+    <div id="top"></div>
     <header>
         <!-- place navbar here -->
         <nav class="navbar navbar-expand-lg bg-white fixed-top">
@@ -55,7 +56,7 @@
                             <a class="nav-link menu_item" href="./blogs.html">Blogs</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link menu_item" href="./profile.html">Profile</a>
+                            <a class="nav-link menu_item" href="./profile.html" id="profile_nav">Profile</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link menu_item active" href="#">Contact Us</a>
@@ -121,20 +122,20 @@
                         <div class="col-6">
                             <form class="d-flex flex-column mt-5">
                                 <div class="d-block mx-auto">
-                                    <label for="name" class="contact-field form-label">Name:</label>
-                                    <input type="text" id="name" name="name" class="contact-input form-control">
+                                    <label for="contact-name" class="contact-field form-label">Name:</label>
+                                    <input type="text" id="contact-name" name="name" class="contact-input form-control text-dark">
                                 </div>
                                 <div class="d-block mx-auto mt-4">
-                                    <label for="email" class="contact-field form-label">Email:</label>
-                                    <input type="email" id="email" name="email" class="contact-input form-control">
+                                    <label for="contact-email" class="contact-field form-label">Email:</label>
+                                    <input type="email" id="contact-email" name="email" class="contact-input form-control">
                                 </div>
                                 <div class="d-block mx-auto mt-4">
-                                    <label for="message" class="contact-field form-label">Comment:</label>
-                                    <textarea id="message" name="message" class="form-control contact-msg"></textarea>
+                                    <label for="contact-message" class="contact-field form-label">Comment:</label>
+                                    <textarea id="contact-message" name="message" class="form-control contact-msg" required></textarea>
                                 </div>
                                 <div class="d-block mx-auto">
                                     <button type="submit" class="btn btn-primary mt-4 contact-btn"
-                                        aria-label="btn">Submit</button>
+                                        aria-label="btn" id="send" onclick="display(event)">Submit</button>
                                 </div>
                             </form>
                         </div>
@@ -244,10 +245,14 @@
                 All Rights Reserved.</p>
         </div>
     </footer>
-
-    <script src="./Assets/js/home.js"></script>
+    <div>
+        <a class="topbtn" href="#top" aria-label="top"><i class="fa fa-long-arrow-up" aria-hidden="true"></i></a>
+    </div>
+    
     <script src="./Assets/js/logout.js"></script>
+    <script src="./Assets/js/contactus.js"></script>
     <script src="./Assets/js/common.js"></script>
+
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">

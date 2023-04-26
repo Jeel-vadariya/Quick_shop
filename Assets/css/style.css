@@ -33,13 +33,16 @@ main{
 .card, .cart-item, .profile-box{
     box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.306);
 }
-.cart-item{
-    /* height: 220px; */
+.cart-item, .cart-item-col{
+    height: 170px;  
 }
 .header {
     height: 70px;
 }
-
+.minus_btn{
+    padding-left: 9.5px !important;
+    padding-right: 9.5px !important;
+}
 #signup:hover,
 #login:hover {
     cursor: pointer;
@@ -286,7 +289,6 @@ main{
 
   .pagination a.active_page {
     background-color: #0074d9;
-    ;
     color: white;
   }
 

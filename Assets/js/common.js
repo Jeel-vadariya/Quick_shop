@@ -18,6 +18,9 @@ function Checkuser() {
         logout_li.appendChild(logout_a);
         nav_ul.appendChild(logout_li);
     }
+    else{
+        document.getElementById("profile_nav").style.display = "none";
+    }
 }
 Checkuser();
 

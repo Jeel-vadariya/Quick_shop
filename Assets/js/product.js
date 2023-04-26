@@ -1,7 +1,8 @@
-var currentPage = 1;
+const totalPages = 4;
+let currentPage = 1; 
 var productAPI = `http://192.168.1.228:4000/api/product?page=${currentPage}`;
 var productList = document.querySelector('.product-list');
-var paginationLinks = document.querySelectorAll('.pagination a');
+// var paginationLinks = document.querySelectorAll('.pagination a');
 
 // Function to fetch products from API and render them on the page
 function renderProducts() {
@@ -32,36 +33,59 @@ function renderProducts() {
     });
 }
 
-// Add event listeners to pagination links
-paginationLinks.forEach(link => {
+function generatePagination(totalPages, currentPage) {
+  let paginationHTML = '<div class="pagination">';
+  
+  // // Previous page link
+  // if (currentPage > 1) {
+  //   paginationHTML += `<a href="#" data-page="${currentPage - 1}">&laquo;</a>`;
+  // } else {
+  //   paginationHTML += '<span class="disabled">&laquo;</span>';
+  // }
+  
+  // Page links
+  for (let i = 1; i <= totalPages; i++) {
+    if (i === currentPage) {
+      paginationHTML += `<a href="#" class="active_page" data-page="${i}">${i}</a>`;
+    } else {
+      paginationHTML += `<a href="#" data-page="${i}">${i}</a>`;
+    }
+  }
+  
+  // // Next page link
+  // if (currentPage < totalPages) {
+  //   paginationHTML += `<a href="#" data-page="${currentPage + 1}">&raquo;</a>`;
+  // } else {
+  //   paginationHTML += '<span class="disabled">&raquo;</span>';
+  // }
+  
+  paginationHTML += '</div>';
+  
+  return paginationHTML;
+}
+
+
+
+// Render initial products on page load
+renderProducts();
+
+const paginationLinks = generatePagination(totalPages, currentPage);
+document.querySelector('.pagination-container').innerHTML = paginationLinks;
+
+// Add click event listeners to pagination links
+const pageLinks = document.querySelectorAll('.pagination a[data-page]');
+pageLinks.forEach(link => {
   link.addEventListener('click', function (e) {
     e.preventDefault();
-    if (link.innerHTML === '&laquo;') {
-      if (currentPage > 1) {
-        currentPage--;
-        productAPI = `http://192.168.1.228:4000/api/product?page=${currentPage}`;
-        renderProducts();
-      }
-    } else if (link.innerHTML === '&raquo;') {
-      if (currentPage < 4) { // Assuming there are 4 pages in total
-        currentPage++;
-        productAPI = `http://192.168.1.228:4000/api/product?page=${currentPage}`;
-        renderProducts();
-      }
-    } else {
-      currentPage = parseInt(link.innerHTML);
-      productAPI = `http://192.168.1.228:4000/api/product?page=${currentPage}`;
-      renderProducts();
-    }
-
+    currentPage = parseInt(link.dataset.page);
+    productAPI = `http://192.168.1.228:4000/api/product?page=${currentPage}`;
+    renderProducts();
+    
     // Update active page link
     document.querySelector('.pagination .active_page').classList.remove('active_page');
     link.classList.add('active_page');
   });
 });
-
-// Render initial products on page load
-renderProducts();
 
 
 
