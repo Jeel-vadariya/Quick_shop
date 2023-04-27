@@ -79,11 +79,28 @@
     </header>
     <main class="pt-5 mt-4">
         <div class="container d-grid cart-products">
-            <div class="col-9 ">
-                <div id="cart-items">
+            <div class="row">
+                <div class="col-9">
+                    <div id="cart-items">
 
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card p-3 mt-2">
+                        <h4>Cart Summary</h4>
+                        <hr class="mt-1">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span>Total Quantity:</span>
+                            <span id="total-quantity"></span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span>Total Price:</span>
+                            <span id="total-price"></span>
+                        </div>
+                    </div>
                 </div>
             </div>
+
         </div>
     </main>
     <footer class="mt-4">

@@ -2,9 +2,7 @@ const totalPages = 4;
 let currentPage = 1; 
 var productAPI = `http://192.168.1.228:4000/api/product?page=${currentPage}`;
 var productList = document.querySelector('.product-list');
-// var paginationLinks = document.querySelectorAll('.pagination a');
 
-// Function to fetch products from API and render them on the page
 function renderProducts() {
   fetch(productAPI)
     .then(response => response.json())
@@ -36,13 +34,6 @@ function renderProducts() {
 function generatePagination(totalPages, currentPage) {
   let paginationHTML = '<div class="pagination">';
   
-  // // Previous page link
-  // if (currentPage > 1) {
-  //   paginationHTML += `<a href="#" data-page="${currentPage - 1}">&laquo;</a>`;
-  // } else {
-  //   paginationHTML += '<span class="disabled">&laquo;</span>';
-  // }
-  
   // Page links
   for (let i = 1; i <= totalPages; i++) {
     if (i === currentPage) {
@@ -51,13 +42,6 @@ function generatePagination(totalPages, currentPage) {
       paginationHTML += `<a href="#" data-page="${i}">${i}</a>`;
     }
   }
-  
-  // // Next page link
-  // if (currentPage < totalPages) {
-  //   paginationHTML += `<a href="#" data-page="${currentPage + 1}">&raquo;</a>`;
-  // } else {
-  //   paginationHTML += '<span class="disabled">&raquo;</span>';
-  // }
   
   paginationHTML += '</div>';
   
@@ -92,7 +76,7 @@ pageLinks.forEach(link => {
 
 function filterProduct(category) {
 
-  fetch(`http://192.168.1.228:4000/api/product`)
+  fetch(productAPI)
     .then(response => response.json())
     .then(data => {
       var products = data.products;

@@ -7,6 +7,8 @@ const otp = document.getElementById('otp');
 const newpassword = document.getElementById('new-password');
 const newconfirmpassword = document.getElementById('confirm-password');
 const input = document.getElementsByTagName('input');
+const profile_name = document.getElementById('input-profile-name');
+const profile_email = document.getElementById('input-profile-email');
 
 const setError = (element, message) => {
     const inputControl = element.parentElement;
@@ -167,5 +169,29 @@ const validateforgotpassword = (event) => {
     else{
         setSuccess(email);
         forgotpassword();
+    }
+}
+
+const updateprofile = (event) => {
+    event.preventDefault();
+    const profilenameValue = profile_name.value.trim();
+    const profileemailValue = profile_email.value.trim();
+
+    if(profilenameValue === ''){
+        setError(profile_name, message.NAME_REQ);
+    }
+    else {
+        setSuccess(profile_name);
+    }
+
+    if (profileemailValue === '') {
+        setError(profile_email, message.EMAIL_REQ);
+    }
+    else if (!isValidEmail(profileemailValue)) {
+        setError(profile_email, message.EMAIL_VALID);
+    }
+    else {
+        setSuccess(profile_email);
+        updateuserprofile();
     }
 }

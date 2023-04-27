@@ -15,7 +15,7 @@ function Checkuser() {
         logout_a.setAttribute("href", "#");
         logout_a.setAttribute("onclick", "logout()")
         logout_a.textContent = "Logout";
-        logout_li.appendChild(logout_a);
+        logout_li.appendChild(logout_a);    
         nav_ul.appendChild(logout_li);
     }
     else{

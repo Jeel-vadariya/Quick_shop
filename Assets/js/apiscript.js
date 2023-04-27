@@ -107,3 +107,28 @@ function resetpassword() {
     });
 };
 
+function updateuserprofile(){
+    $(document).ready(function () {
+        $("#updateinfo").click(function () {
+            var person = new Object();
+            person.name = $('#input-profile-name').val(),
+            person.email = $('#input-profile-email').val()
+            console.log(person);
+            $.ajax({
+                url: `http://192.168.1.228/:4000/api/me/profileupdate`,
+                type: 'PUT',
+                dataType: 'json',
+                data: person,
+                success: function (data, textStatus, xhr) {
+                    console.log(data);
+                    toastr.success("Data successfully updated!");
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    toastr.error(message.RESET_ERROR);
+                },
+                timeout: 5000
+            });
+        });
+    });
+};
+

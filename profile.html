@@ -83,22 +83,30 @@
         <div class="container w-50 h-50 border border-2 rounded-5 p-3 profile-box mb-5">
             <div class="row">
                 <div class="col-5 d-grid align-content-center text-center">
-                    <img alt="profile-img" src="./Assets/img/profile-img2.jpg" class="rounded-circle img-fluid w-50 d-block mx-auto">
+                    <img alt="profile-img" src="./Assets/img/profile-img2.jpg"
+                        class="rounded-circle img-fluid w-50 d-block mx-auto">
                     <div id="profile-name" class="h5"></div>
-                    <div id="profile-email" class="text-muted"></div>      
+                    <div id="profile-email" class="text-muted"></div>
                 </div>
                 <div class="col-7 d-grid">
-                    <form>
-                    <div class="h4 d-block mx-auto">User Profile</div>
-                    <label for="input-profile-name" class="form-label mt-2">Name:</label>
-                    <input id="input-profile-name" class="form-control" readonly>
-                    <label for="input-profile-email" class="form-label mt-3">Email:</label>
-                    <input id="input-profile-email" class="form-control" readonly>
-                    <label for="input-profile-createdate" class="form-label mt-3">Create Date:</label>
-                    <input id="input-profile-createdate" class="form-control" readonly>
-                    <button type="submit" aria-label="btn" class="btn btn-outline-primary px-5 d-block mx-auto mt-3">Save</button>
+                    <form id="form" method="post" onsubmit="updateprofile(event);">
+                        <div class="h4 d-block mx-auto">User Profile</div>
+                        <div>
+                            <label for="input-profile-name" class="form-label mt-2">Name:</label>
+                            <input id="input-profile-name" class="form-control">
+                            <div class="error"></div>
+                        </div>
+                        <div>
+                            <label for="input-profile-email" class="form-label mt-3">Email:</label>
+                            <input id="input-profile-email" class="form-control">
+                            <div class="error"></div>
+                        </div>
+                        <label for="input-profile-createdate" class="form-label mt-3">Create Date:</label>
+                        <input id="input-profile-createdate" class="form-control" readonly>
+                        <button type="submit" aria-label="btn" class="btn btn-outline-primary px-5 d-block mx-auto mt-3"
+                            id="updateinfo">Update</button>
                     </form>
-                    
+
                 </div>
             </div>
         </div>
@@ -207,6 +215,10 @@
     <script src="./Assets/js/logout.js"></script>
     <script src="./Assets/js/common.js"></script>
     <script src="./Assets/js/profile.js"></script>
+    <script src="./Assets/js/api.js"></script>
+    <script src="./Assets/js/apiscript.js"></script>
+    <script src="./Assets/js/message.js"></script>
+    <script src="./Assets/js/script.js"></script>
 
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"

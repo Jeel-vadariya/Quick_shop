@@ -7,42 +7,65 @@
     display: flex;
     flex-direction: column;
 }
-.details-card{
+
+.details-card {
     max-width: 1200px;
 }
-.main{
+
+.main {
     min-height: 49.7vh;
 }
-main{
+
+main {
     min-height: 46.4vh;
 }
-.cart-products{
+
+.cart-products {
     justify-items: center;
 }
-.modal-discription{
+
+.modal-discription {
     font-size: 20px;
 }
+
 .modal-rating,
 .modal-stock,
-.modal-review{
+.modal-review {
     font-size: 18px;
 }
-.review-box{
-    width: 17%;
+
+.cart-product-img {
+    max-height: 100%;
 }
-.card, .cart-item, .profile-box{
+
+.days {
+    font-weight: 700;
+}
+
+.review-box {
+    width: 140px;  
+  }
+
+.card,
+.cart-item,
+.profile-box {
     box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.306);
 }
-.cart-item, .cart-item-col{
-    height: 170px;  
+
+.cart-item,
+.cart-item-col {
+    height: 170px;
 }
+
 .header {
     height: 70px;
 }
-.minus_btn{
+
+.minus_btn {
     padding-left: 9.5px !important;
     padding-right: 9.5px !important;
 }
+
 #signup:hover,
 #login:hover {
     cursor: pointer;
@@ -153,101 +176,116 @@ main{
     width: 83%;
 }
 
-#toast-container > div {
+#toast-container>div {
     opacity: 0.9;
 }
+
 .toast {
     border-radius: 0;
     box-shadow: none;
     font-size: 14px;
 }
+
 .toast-error {
     background-color: #dc3545;
     color: #fff;
 }
+
 .toast-success {
     background-color: #28a745;
     color: #fff;
 }
+
 .toast-warning {
     background-color: goldenrod;
     color: #fff;
 }
-.ui-widget-header{
+
+.ui-widget-header {
     background-color: goldenrod;
     color: #fff;
 }
-.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset .yescls
-{
-    font-size:15px;
+
+.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset .yescls {
+    font-size: 15px;
     border: 0px;
     border-radius: 15px;
     padding: 5px;
     color: #FFFFFF;
     width: 100px;
     background: #90C93E;
-    
+
 }
-.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset .nocls
-{
-    font-size:15px;
+
+.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset .nocls {
+    font-size: 15px;
     border: 0px;
     padding: 5px;
     border-radius: 15px;
     color: #FFFFFF;
     width: 100px;
     background: #F86379;
-    
+
 }
 
-.blog-date{
+.blog-date {
     font-size: 14px;
     font-family: 'League Spartan', sans-serif;
 }
-.blog-heading{
+
+.blog-heading {
     font-family: 'League Spartan', sans-serif;
     font-size: 25px;
     font-weight: bold;
     cursor: pointer;
 }
-.blog-text{
+
+.blog-text {
     font-size: 22px;
     text-align: justify;
     font-family: 'League Spartan', sans-serif;
 }
-#blog-btn{
+
+#blog-btn {
     font-size: 19px;
     font-family: 'League Spartan', sans-serif;
 }
-.contact-input{
+
+.contact-input {
     font-family: 'League Spartan', sans-serif;
     width: 700px;
     min-width: 400px;
     border-radius: 5px;
     border: 1px solid #0074d9;
 }
-.contact-us{
+
+.contact-us {
     font-family: 'League Spartan', sans-serif;
 }
+
 .contact-heading,
-.contact-field{
+.contact-field {
     font-weight: bold;
     font-size: 18px;
 }
-.contact-text{
+
+.contact-text {
     font-size: 18px;
 }
-.contact-btn{
+
+.contact-btn {
     font-family: 'League Spartan', sans-serif;
     width: 700px;
     min-width: 400px;
     font-size: 18px;
 }
-.social-media{
+
+.social-media {
     font-size: 19px;
     color: black;
 }
-.contact-msg{
+
+.contact-msg {
     height: 120px;
     font-family: 'League Spartan', sans-serif;
     width: 700px;
@@ -255,49 +293,55 @@ main{
     border-radius: 5px;
     border: 1px solid #0074d9;
 }
-.contact-detail:hover{
+
+.contact-detail:hover {
     color: #0074d9 !important;
     cursor: pointer;
 }
+
 .filters-name {
     font-size: 16px;
     font-weight: 500;
-  }
+}
 
-  .cat,
-  .price {
+.cat,
+.price {
     list-style: none;
     font-size: 15px;
-  }
+}
 
-  .cat-type:hover,
-  .price-type:hover {
+.cat-type:hover,
+.price-type:hover {
     font-weight: 500;
     cursor: pointer;
-  }
+}
 
-  .pagination {
+.pagination {
     display: inline-block;
-  }
+}
 
-  .pagination a {
+.pagination a {
     color: black;
     float: left;
     padding: 8px 16px;
     text-decoration: none;
-  }
+}
 
-  .pagination a.active_page {
+.pagination a.active_page {
     background-color: #0074d9;
     color: white;
-  }
+}
 
-  .pagination a:hover:not(.active_page) {
+.pagination a:hover:not(.active_page) {
     background-color: #ddd;
-  }
-  #input-profile-name:hover, #input-profile-email:hover, #input-profile-createdate:hover{
+}
+
+#input-profile-name:hover,
+#input-profile-email:hover,
+#input-profile-createdate:hover {
     border: 1px solid #99bdf1;
-  }
+}
+
 @media (max-width: 992px) and (min-width: 768px) {
     #mainborder {
         margin-top: 90px !important;
