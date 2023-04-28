@@ -171,8 +171,10 @@ const validateforgotpassword = (event) => {
         forgotpassword();
     }
 }
+const token = JSON.parse(localStorage.getItem("token"))
+// console.log(token);
 
-const updateprofile = (event) => {
+const updateprofile = (event,token) => {
     event.preventDefault();
     const profilenameValue = profile_name.value.trim();
     const profileemailValue = profile_email.value.trim();
@@ -192,6 +194,7 @@ const updateprofile = (event) => {
     }
     else {
         setSuccess(profile_email);
-        updateuserprofile();
+        updateuserprofile(token);
+        
     }
 }

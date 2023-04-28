@@ -107,7 +107,7 @@ function resetpassword() {
     });
 };
 
-function updateuserprofile(){
+function updateuserprofile(token) {
     $(document).ready(function () {
         $("#updateinfo").click(function () {
             var person = new Object();
@@ -115,10 +115,15 @@ function updateuserprofile(){
             person.email = $('#input-profile-email').val()
             console.log(person);
             $.ajax({
-                url: `http://192.168.1.228/:4000/api/me/profileupdate`,
+                url: "http://192.168.1.228:4000/api/me/update", 
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json",
+                    Authorization: `${token}`,
+                },
                 type: 'PUT',
                 dataType: 'json',
-                data: person,
+                data: JSON.parse(person),
                 success: function (data, textStatus, xhr) {
                     console.log(data);
                     toastr.success("Data successfully updated!");

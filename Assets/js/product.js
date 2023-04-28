@@ -21,7 +21,7 @@ function renderProducts() {
               </div>
               <div class="card-footer d-flex justify-content-between align-items-center">
                 <div class="product-price">₹${product.price}</div>
-                <a class="btn btn-outline-primary px-4 buy-now-btn" data-product-id="${product._id}" href="./productdetails.html?id=${product._id}">Buy Now</a>
+                <a class="btn btn-outline-primary px-3 buy-now-btn" data-product-id="${product._id}" href="./productdetails.html?id=${product._id}">Buy Now <i class="fa fa-angle-right arrow-1" aria-hidden="true"></i><i class="fa fa-angle-right arrow-2" aria-hidden="true"></i><i class="fa fa-angle-right arrow-3" aria-hidden="true"></i></a>
               </div>
             </div>
           </div>  

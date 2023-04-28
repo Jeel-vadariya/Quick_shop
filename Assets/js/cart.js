@@ -1,3 +1,8 @@
+const btn = document.querySelector('.checkout');
+        btn.addEventListener('click', () => {
+            document.documentElement.classList.toggle('checked-out');
+        });
+
 function displaycartitem() {
   const cart = JSON.parse(localStorage.getItem('cart'));
 
@@ -15,7 +20,7 @@ function displaycartitem() {
       if (product) {
         cartcode += `
           <div class="row border border-2 rounded-3 mb-3 cart-item mt-2">
-            <div class="col-lg-2 cart-item-col">
+            <div class="col-lg-2 cart-item-col-img ps-3 py-1">
               <img class="img-fluid py-2 h-auto cart-product-img" src="${product.images[0].url}" alt="img">
             </div>
             <div class="col-lg-5 cart-item-col">

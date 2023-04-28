@@ -4,7 +4,10 @@ function loginstorage(data) {
         user: data.user,
         token: data.token,
       };
+
     localStorage.setItem('userData', JSON.stringify(userData)); 
+    localStorage.setItem("token",JSON.stringify(userData.token))
+   
     toastr.success("Login successfully!");
     setTimeout(function(){
         window.location.href = 'home.html';
