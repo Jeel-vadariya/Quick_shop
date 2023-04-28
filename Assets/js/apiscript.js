@@ -1,77 +1,99 @@
-// const ul = document.getElementById('authors');
-// const list = document.createDocumentFragment();
-// const url = 'http://192.168.1.97:4000/api/register';
+function apicalling() {
+    $(document).ready(function () {
+        $("#signupbtn").click(function () {
+            var person = new Object();
+            person.name = $('#fname').val(),
+                person.email = $('#emailid').val(),
+                person.password = $('#password').val(),
+                person.confirmpassword = $('#confirmpassword').val()
+            $.ajax({
+                url: API + REGISTER_URL,
+                type: 'POST',
+                dataType: 'json',
+                data: person,
+                success: function (data, textStatus, xhr) {
+                    console.log(data);
+                    storage();
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    console.log(message.SIGNUP_ERROR);
+                },
+                timeout: 5000
+            });
+        });
 
-// fetch(url)
-//     .then((response) => {
-//         return response.json();
-//     })
-//     .then((data) => {
-//         let authors = data;
-
-//         authors.map(function (author) {
-//             let li = document.createElement('li');
-//             let name = document.createElement('h2');
-//             let email = document.createElement('span');
-
-//             name.innerHTML = `${author.name}`;
-//             email.innerHTML = `${author.email}`;
-
-//             li.appendChild(name);
-//             li.appendChild(email);
-//             list.appendChild(li);
-//         });
-//     }).
-//     .catch(function (error) {
-//         console.log(error);
-//     });
-
-// ul.appendChild(list);
-
-
-function fetch(){
-    $.ajax({
-        url: "http://192.168.1.97:4000/api/product",
-        type: "GET",
-        dataType: "JSON",
-        data: JSON.stringify({ }),
-        success: function(data){
-            $('.messages').append("<li>"+JSON.stringify(data)+"</li>")
-        }
     });
-}
+};
 
-function fetchdata(){
+function loginapi() {
+    $(document).ready(function () {
+        $("#loginbtn").click(function () {
+            var person = new Object();
+            person.email = $('#emailid').val(),
+                person.password = $('#password').val()
+            $.ajax({
+                url: API + LOGIN_URL,
+                type: 'POST',
+                dataType: 'json',
+                data: person,
+                success: function (data, textStatus, xhr) {
+                    console.log(data);
+                    loginstorage(data);
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    console.log(message.LOGIN_ERROR);
+                },
+                timeout: 5000
+            });
+        });
+    });
+};
 
- console.log(document.forms[0].checkValidity());
-    fetch('http://192.168.1.97:4000/api/register', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({
-            fullname: document.getElementById("fname").value,
-            email: document.getElementById("emailid").value,
-            password: document.getElementById("password").value,
-            password_confirmation: document.getElementById("confirmpassword").value
-        })
-    })
-    .then(data => data.json())
-    .then(data =>  { 
-        console.log(data);
-        if(data.response){
-            alert("Successfully Registered"); 
-        } else{
-            alert("Sorry, email has already been taken.");
-        } 
-    })
-    .catch((err) => {
-         alert ("This is a warning message!");
-        console.error(err);
-    })
+function forgotpassword() {
+    $(document).ready(function () {
+        $("#forgotbtn").click(function () {
+            var person = new Object();
+            person.email = $('#emailid').val()
+            $.ajax({
+                url: API + FORGOT,
+                type: 'POST',
+                dataType: 'json',
+                data: person,
+                success: function (data, textStatus, xhr) {
+                    console.log(data);
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    console.log(message.FORGOT_ERROR);
+                },
+                timeout: 5000
+            });
+        });
+    });
+};
 
-   
-}
 
- window.onload = function() {
-  document.forms[0]
-  .addEventListener("submit", fetchdata)
-}
+function resetpassword() {  
+    $(document).ready(function () {
+        $("#resetbtn").click(function () {
+            var person = new Object();
+            const token = window.location.href.split('=')[1];
+            person.password = $('#new-password').val(),
+                person.confirmPassword = $('#confirm-new-password').val()
+                console.log(person);
+            $.ajax({
+                url: `http://192.168.1.252:4000/api/password/reset/${token}`,
+                type: 'PUT',
+                dataType: 'json',
+                data: person,
+                success: function (data, textStatus, xhr) {
+                    console.log(data);
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    console.log(message.RESET_ERROR);
+                },
+                timeout: 5000
+            });
+        });
+    });
+};
+

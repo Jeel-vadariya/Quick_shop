@@ -8,37 +8,6 @@ const newconfirmpassword = document.getElementById('confirm-new-password');
 const input = document.getElementsByTagName('input');
 const eye = document.getElementsByClassName("fa-eye-slash");
 
-eye[0].addEventListener("click", function () {
-   
-    // toggle the type attribute
-    const type = password.getAttribute("type") === "password" ? "text" : "password";
-    password.setAttribute("type", type);
-    
-    // toggle the eye icon
-    this.classList.toggle('fa-eye');
-    this.classList.toggle('fa-eye-slash');
-    });
-// input.addEventListener('click', element => {
-//     const inputControl = element.parentElement;
-//     const errorDisplay = inputControl.querySelector('.error');
-
-//     errorDisplay.innerText = '';
-//     inputControl.classList.add('success');
-//     inputControl.classList.remove('error');
-// });
-// signupbtn.addEventListener('click', e => {
-//     e.preventDefault();
-
-//     validateInputs();
-// });
-
-// loginbtn.addEventListener('click', e => {
-//     e.preventDefault();
-
-//     validate();
-// });
-
-
 const setError = (element, message) => {
     const inputControl = element.parentElement;
     const errorDisplay = inputControl.querySelector('.error');
@@ -65,58 +34,51 @@ const isValidEmail = email => {
 const validateInputs = (event) => {
 
     event.preventDefault();
-    const fullnameValue = fullname.value.trim();
-    const emailValue = email.value.trim();
-    const passwordValue = password.value.trim();
-    const confirm_passwordValue = confirm_password.value.trim();
+    fullnameValue = fullname.value.trim();
+    emailValue = email.value.trim();
+    passwordValue = password.value.trim();
+    confirm_passwordValue = confirm_password.value.trim();
 
-    if(fullnameValue === ''){
-        setError(fullname, 'Fullname is required');
+    if (fullnameValue === '') {
+        setError(fullname, message.FULLNAME);
     }
-    else{
+    else {
         setSuccess(fullname);
     }
 
-    if(emailValue === ''){
-        setError(email, 'Email-id is required');
+    if (emailValue === '') {
+        setError(email, message.EMAIL_REQ);
     }
-    else if(!isValidEmail(emailValue)){
-        setError(email, ' Enter a valid Email-id');
+    else if (!isValidEmail(emailValue)) {
+        setError(email, message.EMAIL_VALID);
     }
-    else{
+    else {
         setSuccess(email);
     }
 
-    if(passwordValue === ''){
-        setError(password, 'password is required');
+    if (passwordValue === '') {
+        setError(password, message.PASSWORD);
     }
-    else if(passwordValue.length < 8){
-        setError(password, 'password must be at least 8 character');
+    else if (passwordValue.length < 8) {
+        setError(password, message.PASSWORD_LENGTH);
     }
-    else{
+    else {
         setSuccess(password);
     }
 
-    if(confirm_passwordValue === ''){
-        setError(confirm_password, 'confirm password is required');
+    if (confirm_passwordValue === '') {
+        setError(confirm_password, message.CONFIRM_PASSWORD);
     }
-    else if(confirm_passwordValue !== passwordValue){
-        setError(confirm_password, "password doesn't match");
+    else if (confirm_passwordValue !== passwordValue) {
+        setError(confirm_password, message.MATCH_PASSWORD);
     }
-    else{
+    else {
         setSuccess(confirm_password);
     }
-    
-    // if(validateInputs() == true){
-    //     try{
-    //         fetch('http://192.168.1.97:4000/api/register')
-    //         .then(response => response.text())
-    //         .then(data => console.log(data));
-    //     }
-    //     catch{
 
-    //     }
-    // }
+    if (validateInputs != null) {
+        apicalling();
+    }
 }
 
 
@@ -126,26 +88,27 @@ const validate = (event) => {
     event.preventDefault();
     const emailValue = email.value.trim();
     const passwordValue = password.value.trim();
-    console.log(passwordValue, "passwordValue")
 
-    if(emailValue === ''){
-        setError(email, 'Email-id is required');
+    if (emailValue === '') {
+        setError(email, message.EMAIL_REQ);
     }
-    else if(!isValidEmail(emailValue)){
-        setError(email, ' Enter a valid Email-id');
+    else if (!isValidEmail(emailValue)) {
+        setError(email, message.EMAIL_VALID);
     }
-    else{
+    else {
         setSuccess(email);
     }
 
-    if(passwordValue === ''){
-        setError(password, 'password is required');
+    if (passwordValue === '') {
+        setError(password, message.PASSWORD);
     }
-    else if(passwordValue.length < 8){
-        setError(password, 'password must be at least 8 character');
+    else if (passwordValue.length < 8) {
+        setError(password, message.PASSWORD_LENGTH);
     }
-    else{
+    else {
         setSuccess(password);
+        alert("ok");
+        loginapi();
     }
 }
 
@@ -154,26 +117,27 @@ const validatenewpassword = (event) => {
     event.preventDefault();
     const newpasswordValue = newpassword.value.trim();
     const newconfirmpasswordValue = newconfirmpassword.value.trim();
-   
 
-    if(newpasswordValue === ''){
-        setError(newpassword, 'New password is required');
+
+    if (newpasswordValue === '') {
+        setError(newpassword, message.NEW_PASSWORD);
     }
-    else if(newpasswordValue.length < 8){
-        setError(newpassword, 'Password must be at least 8 character');
+    else if (newpasswordValue.length < 8) {
+        setError(newpassword, message.PASSWORD_LENGTH);
     }
-    else{
+    else {
         setSuccess(newpassword);
     }
 
-    if(newconfirmpasswordValue === ''){
-        setError(newconfirmpassword, 'Confirm new password is required');
+    if (newconfirmpasswordValue === '') {
+        setError(newconfirmpassword, message.NEW_CONFIRM_PASSWORD);
     }
-    else if(newconfirmpasswordValue !== newpasswordValue){
-        setError(newconfirmpassword, "Password doesn't match");
+    else if (newconfirmpasswordValue !== newpasswordValue) {
+        setError(newconfirmpassword, message.MATCH_PASSWORD);
     }
-    else{
+    else {
         setSuccess(newconfirmpassword);
+        resetpassword();
     }
 }
 
@@ -182,13 +146,14 @@ const validateforgotpassword = (event) => {
     event.preventDefault();
     const emailValue = email.value.trim();
 
-    if(emailValue === ''){
-        setError(email, 'Email-id is required');
+    if (emailValue === '') {
+        setError(email, message.EMAIL_REQ);
     }
-    else if(!isValidEmail(emailValue)){
-        setError(email, ' Enter a valid Email-id');
+    else if (!isValidEmail(emailValue)) {
+        setError(email, message.EMAIL_VALID);
     }
     else{
         setSuccess(email);
+        forgotpassword();
     }
 }
