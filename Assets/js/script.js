@@ -9,6 +9,7 @@ const newconfirmpassword = document.getElementById('confirm-password');
 const input = document.getElementsByTagName('input');
 const profile_name = document.getElementById('input-profile-name');
 const profile_email = document.getElementById('input-profile-email');
+const profile_img = document.getElementById('file');
 
 const setError = (element, message) => {
     const inputControl = element.parentElement;
@@ -178,6 +179,7 @@ const updateprofile = (event,token) => {
     event.preventDefault();
     const profilenameValue = profile_name.value.trim();
     const profileemailValue = profile_email.value.trim();
+    const profileimgValue = profile_img.value;
 
     if(profilenameValue === ''){
         setError(profile_name, message.NAME_REQ);
@@ -193,8 +195,13 @@ const updateprofile = (event,token) => {
         setError(profile_email, message.EMAIL_VALID);
     }
     else {
-        setSuccess(profile_email);
-        updateuserprofile(token);
-        
+        setSuccess(profile_email);   
+    }
+
+    if(profileimgValue === ''){
+        setError(profile_img, message.IMAGE_REQ);
+    }
+    else{
+       updateuserprofile(token);
     }
 }

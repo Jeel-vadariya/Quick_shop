@@ -1,4 +1,4 @@
-var productAPI = 'http://192.168.1.228:4000/api/product';
+var productAPI = 'http://192.168.1.14:4000/api/product';
 var productDetails = document.querySelector('.product-details');
 
 // Get the product ID from the query parameter
@@ -88,6 +88,7 @@ productDetails.innerHTML = productDetailsHtml;
         }
 
         localStorage.setItem('cart', JSON.stringify(cart));
+        carticonquantity();
       }
     });
 

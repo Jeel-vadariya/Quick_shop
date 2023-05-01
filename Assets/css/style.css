@@ -1,3 +1,39 @@
+.profile-pic {
+    color: transparent;
+    transition: all 0.3s ease;
+  }
+  .profile-pic input {
+    display: none;
+  }
+  .profile-pic img {
+    object-fit: cover;
+    width: 165px;
+    height: 165px;
+    box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.35);
+    border-radius: 100px;
+    z-index: 0;
+  }
+  .profile-pic .-label {
+    cursor: pointer;
+    height: 165px;
+    width: 165px;
+  }
+  .profile-pic:hover .-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.603);
+    z-index: 10000;
+    color: #fafafa;
+    transition: background-color 0.2s ease-in-out;
+    border-radius: 100px;
+    margin-bottom: 0;
+  }
+  .profile-pic span {
+    display: inline-flex;
+    padding: 0.2em;
+    height: 2em;
+  }
 #forgot {
     color: #0074d9;
     cursor: pointer;
@@ -23,7 +59,14 @@ main {
 .cart-products {
     justify-items: center;
 }
-
+.cart-icon-quantity{
+    display: table;
+    margin-top: -22px;
+    margin-left: 12px;
+    font-size: 16px;
+    padding: 0px;
+    color: red;
+}
 .modal-discription {
     font-size: 20px;
 }
@@ -61,21 +104,6 @@ main {
 }
 .header {
     height: 70px;
-}
-.arrow {
-	/* more triangle */
-	height: 10px; width: 10px;
-	border: 1px solid rgba(255, 255, 255, 0.6);
-	border-width: 3px 3px 0 0;
-	transform: rotate(45deg);
-}
-
-.arrow:before, .arrow:after {
-	content: '';
-	position: absolute;
-	display: block;
-	height: 10px; width: 10px;
-	border-width: 3px 3px 0 0;
 }
 .fa-angle-right{
     font-size: 18px;
@@ -148,7 +176,16 @@ main {
     color: #0074d9 !important;
     border-bottom: 2px solid #0074d9;
 }
-
+.active_category{
+    font-weight: 500;
+    color: black;
+    text-decoration: none;
+}
+.cat-type a,
+.price-type a{
+    color: black;
+    text-decoration: none;
+}
 .slide_img {
     width: 100%;
 }

@@ -13,7 +13,10 @@ function apicalling() {
                 data: person,
                 success: function (data, textStatus, xhr) {
                     console.log(data);
-                    location.href = "http://localhost:8090/project/login.html";
+                    toastr.success("Your account successfully created!");
+                    setTimeout(function () {
+                        window.location.href = 'login.html';
+                    }, 500);
                 },
                 error: function (xhr, textStatus, errorThrown) {
                     toastr.error(message.SIGNUP_ERROR);
@@ -112,10 +115,11 @@ function updateuserprofile(token) {
         $("#updateinfo").click(function () {
             var person = new Object();
             person.name = $('#input-profile-name').val(),
-            person.email = $('#input-profile-email').val()
+            person.email = $('#input-profile-email').val(),
+            person.img = $('#file').val()
             console.log(person);
             $.ajax({
-                url: "http://192.168.1.228:4000/api/me/update", 
+                url: "http://192.168.1.14:4000/api/me/update", 
                 headers: {
                     Accept: "application/json",
                     "Content-Type": "application/json",
@@ -123,7 +127,7 @@ function updateuserprofile(token) {
                 },
                 type: 'PUT',
                 dataType: 'json',
-                data: JSON.parse(person),
+                data: person,
                 success: function (data, textStatus, xhr) {
                     console.log(data);
                     toastr.success("Data successfully updated!");

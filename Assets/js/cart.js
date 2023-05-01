@@ -1,14 +1,15 @@
 const btn = document.querySelector('.checkout');
-        btn.addEventListener('click', () => {
-            document.documentElement.classList.toggle('checked-out');
-        });
+btn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('checked-out');
+});
 
 function displaycartitem() {
   const cart = JSON.parse(localStorage.getItem('cart'));
 
   const cartItems = document.querySelector('#cart-items');
   const totalQuantity = document.querySelector('#total-quantity');
-  const totalPrice = document.querySelector('#total-price');
+  const totalPrice = document.getElementById('total-price');
+  const totalPrice2 = document.getElementById('total-price2');
 
   if (cart && cart.length > 0) {
     let cartcode = '';
@@ -49,6 +50,7 @@ function displaycartitem() {
     cartItems.innerHTML = cartcode;
     totalQuantity.textContent = quantityTotal;
     totalPrice.textContent = `₹${priceTotal}`;
+    totalPrice2.textContent = `₹${priceTotal}`;
   } else {
     cartItems.innerHTML = `
     <div class="text-center">
@@ -59,6 +61,7 @@ function displaycartitem() {
     </div>`;
     totalQuantity.textContent = 0;
     totalPrice.textContent = `₹0`;
+    totalPrice2.textContent = `₹0`;
   }
 }
 
@@ -101,7 +104,7 @@ function removeItem(id) {
 
   let index = cart.findIndex(item => item.id === id);
   if (index >= 0) {
-    cart.splice(index, 1);    
+    cart.splice(index, 1);
     localStorage.setItem('cart', JSON.stringify(cart));
     location.reload();
   }
@@ -123,4 +126,6 @@ function updateCartTotal() {
 
   document.getElementById('total-quantity').textContent = totalQuantity;
   document.getElementById('total-price').textContent = `₹${totalPrice}`;
+  document.getElementById('total-price2').textContent = `₹${totalPrice}`;
+  carticonquantity();
 }

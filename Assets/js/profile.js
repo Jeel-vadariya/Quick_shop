@@ -11,3 +11,8 @@ input_profile_name.value = userData.user.name;
 input_profile_email.value = userData.user.email;
 input_profile_createdate.value = userData.user.createdAt;
 
+var loadFile = function (event) {
+    var image = document.getElementById("output");
+    image.src = URL.createObjectURL(event.target.files[0]);
+  };
+  

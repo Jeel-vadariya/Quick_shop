@@ -24,4 +24,29 @@ function Checkuser() {
 }
 Checkuser();
 
+window.onload = function() {
+    if (Checkuser()) {
+      if (window.location.pathname.endsWith('/login.html' || '/signup.html' || '/forgot_password.html')) {
+        window.location.href = 'http://localhost:8090/project/home.html';
+      }
+    } else {
+      if (window.location.pathname.endsWith('/profile.html')) {
+        window.location.href = 'http://localhost:8090/project/login.html';
+      }
+    }
+  }; 
+  
+  function carticonquantity(){
+    const cartBadge = document.getElementById('cart-badge');
+    let cart = JSON.parse(localStorage.getItem('cart'));
+    let totalQuantity = 0;
+  
+    if (cart && cart.length > 0) {
+      cart.forEach(item => {
+        totalQuantity += item.quantity;
+      });
+    }
+    cartBadge.innerHTML = `<i class="fa badge fa-lg cart-icon-quantity">${totalQuantity}</i>`;
+  }
+  carticonquantity();
 

@@ -70,9 +70,12 @@
                         </form>
                         <ul class="navbar-nav mb-2 mb-lg-0 menu d-block align-items-end ms-auto">
                             <li class="nav-item">
-                                <a class="nav-link menu_item" href="./cart.html"><i class="fa fa-shopping-cart cart" aria-hidden="true"></i> Cart</a>
+                                <a class="nav-link menu_item" href="./cart.html">
+                                    Cart
+                                    <i class="fa fa-shopping-cart" id="cart-badge" aria-hidden="true"></i>
+                                </a>
                             </li>
-                        </ul> 
+                        </ul>
                     </div>
                 </div>
             </nav>
@@ -80,47 +83,70 @@
         <div class="main mt-2">
             <div class="container-fluid">
                 <div class="row">
-                  <div class="col-3">
-                    <div class="mt-2 border border-1 rounded-3 p-2 filter-border">
-                      <h5><i class="fa fa-sliders" aria-hidden="true"></i> FILTER BY</h5>
-                      <hr class="border border-primary m-0">
-                      <div class="mt-2 ms-3"><span class="filters-name"><i class="fa fa-align-left" aria-hidden="true"></i>
-                          CATEGORIES</span>
-                        <ul class="cat">
-                          <li class="mb-1 mt-2 cat-type"><a onclick="filterProduct(`men's clothing`)">Men</a></li>
-                          <li class="mb-1 cat-type"><a onclick="filterProduct(`women's clothing`)">Women</a></li>
-                          <li class="mb-1 cat-type"><a onclick="filterProduct('Kids')">Kids</a></li>
-                          <li class="mb-1 cat-type"><a onclick="filterProduct('jewelery')">Jewelery</a></li>
-                          <li class="mb-1 cat-type"><a onclick="filterProduct(`Footwear`)">Footwear</a></li>
-                          <li class="mb-1 cat-type"><a onclick="filterProduct(`Beauty`)">Beauty</a></li>
-                          <li class="mb-1 cat-type"><a onclick="filterProduct('electronics')">Electronics</a></li>
-                        </ul>
-        
-        
-                      </div>
-                      <div class="mt-2 ms-3"><span class="filters-name"><i class="fa fa-align-left" aria-hidden="true"></i>
-                          PRICE</span>
-                        <ul class="price">
-                          <li class="mb-1 mt-2 price-type"><a onclick="rangeproduct(10, 1000)">₹10 - ₹1,000</a></li>
-                          <li class="mb-1 price-type"><a onclick="rangeproduct(1000, 5000)">₹1,000 - ₹5,000</a></li>
-                          <li class="mb-1 price-type"><a onclick="rangeproduct(5000, 10000)">₹5,000 - ₹10,000</a></li>
-                          <li class="mb-1 price-type"><a onclick="rangeproduct(10000, Infinity)">₹10,000+</a></li>
-                        </ul>
-                      </div>
+                    <div class="col-3">
+                        <div class="mt-2 border border-1 rounded-3 p-2 filter-border">
+                            <h5><i class="fa fa-sliders" aria-hidden="true"></i> FILTER BY</h5>
+                            <hr class="border border-primary m-0">
+                            <div class="mt-2 ms-3"><span class="filters-name"><i class="fa fa-align-left"
+                                        aria-hidden="true"></i>
+                                    CATEGORIES</span>
+                                <ul class="cat">
+                                    <li class="mb-1 mt-2 cat-type"><a
+                                            onclick="filterProduct(null); setActiveCategory(this);">All</a></li>
+                                    <li class="mb-1 cat-type"><a
+                                            onclick="filterProduct(`men's clothing`); setActiveCategory(this);">Men</a>
+                                    </li>
+                                    <li class="mb-1 cat-type"><a
+                                            onclick="filterProduct(`women's clothing`); setActiveCategory(this);">Women</a>
+                                    </li>
+                                    <li class="mb-1 cat-type"><a
+                                            onclick="filterProduct('Kids'); setActiveCategory(this);">Kids</a></li>
+                                    <li class="mb-1 cat-type"><a
+                                            onclick="filterProduct('jewelery'); setActiveCategory(this);">Jewelery</a>
+                                    </li>
+                                    <li class="mb-1 cat-type"><a
+                                            onclick="filterProduct(`Footwear`); setActiveCategory(this);">Footwear</a>
+                                    </li>
+                                    <li class="mb-1 cat-type"><a
+                                            onclick="filterProduct(`Beauty`); setActiveCategory(this);">Beauty</a></li>
+                                    <li class="mb-1 cat-type"><a
+                                            onclick="filterProduct('electronics'); setActiveCategory(this);">Electronics</a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                            <div class="mt-2 ms-3"><span class="filters-name"><i class="fa fa-align-left"
+                                        aria-hidden="true"></i>
+                                    PRICE</span>
+                                <ul class="price">
+                                    <li class="mb-1 mt-2 price-type"><a
+                                            onclick="rangeproduct(10, 1000); setActiveCategory(this);">₹10 -
+                                            ₹1,000</a></li>
+                                    <li class="mb-1 price-type"><a
+                                            onclick="rangeproduct(1000, 5000); setActiveCategory(this);">₹1,000 -
+                                            ₹5,000</a></li>
+                                    <li class="mb-1 price-type"><a
+                                            onclick="rangeproduct(5000, 10000); setActiveCategory(this);">₹5,000 -
+                                            ₹10,000</a></li>
+                                    <li class="mb-1 price-type"><a
+                                            onclick="rangeproduct(10000, Infinity); setActiveCategory(this);">₹10,000+</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
                     </div>
-        
-                  </div>
-                  <div class="col-9">
-                    <div class="row product-list mt-2 products-container">
-        
+                    <div class="col-9">
+                        <div class="row product-list mt-2 products-container">
+
+                        </div>
                     </div>
-                  </div>
-                  <div class="d-block mx-auto text-center mt-5 pagination-container">
-                    
-                  </div>
+                    <div class="d-block mx-auto text-center mt-5 pagination-container">
+
+                    </div>
                 </div>
-        
-              </div>
+
+            </div>
 
             <!-- <button class="cart-button">Cart</button> -->
         </div>
@@ -232,7 +258,7 @@
         <a class="topbtn" href="#top" aria-label="top"><i class="fa fa-long-arrow-up" aria-hidden="true"></i></a>
     </div>
 
-    <script src="./Assets/js/api.js"></script>  
+    <script src="./Assets/js/api.js"></script>
     <script src="./Assets/js/product.js"></script>
     <script src="./Assets/js/common.js"></script>
     <script src="./Assets/js/localstorage.js"></script>

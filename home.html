@@ -65,8 +65,11 @@
                     </form>
                     <ul class="navbar-nav mb-2 mb-lg-0 menu d-block align-items-end ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link menu_item" href="./cart.html"><i class="fa fa-shopping-cart cart" aria-hidden="true"></i> Cart</a>
-                        </li>
+                            <a class="nav-link menu_item" href="./cart.html">
+                              Cart 
+                              <i class="fa fa-shopping-cart" id="cart-badge" aria-hidden="true"></i>
+                            </a>
+                          </li>
                     </ul>
                 </div>
             </div>
@@ -108,9 +111,15 @@
                 </button>
             </div>
         </div>
-        <div class="container">
-            <div id="product-file mt-5">
-                
+        <div class="container mt-5">
+            <div>
+                <div id="totalproducts"></div>
+                <div class="row product-list mt-2 products-container">
+
+                </div>
+            </div>
+            <div class="d-block mx-auto text-center mt-5 pagination-container">
+
             </div>
         </div>
     </main>
@@ -193,26 +202,34 @@
                             launches and exclusive offers!</p>
                         <h5 class="border-bottom">Visit us:</h5>
                         <ul class="list-unstyled list-inline">
-                            <li class="list-inline-item me-3 h5"><a href="http://facebook.com/" aria-label="facebook" target="_blank" rel="noopener noreferrer"><i class="fa fa-facebook text-white li_hover" aria-hidden="true"></i></a></li>
-                            <li class="list-inline-item me-3 h5"><a href="http://instagram.com/" aria-label="instagram" target="_blank" rel="noopener noreferrer"><i class="fa fa-instagram text-white li_hover" aria-hidden="true"></i></a></li>
-                            <li class="list-inline-item h5"><a href="http://twitter.com/" aria-label="twitter" target="_blank" rel="noopener noreferrer"><i class="fa fa-twitter text-white li_hover" aria-hidden="true"></i></a></li>
+                            <li class="list-inline-item me-3 h5"><a href="http://facebook.com/" aria-label="facebook"
+                                    target="_blank" rel="noopener noreferrer"><i
+                                        class="fa fa-facebook text-white li_hover" aria-hidden="true"></i></a></li>
+                            <li class="list-inline-item me-3 h5"><a href="http://instagram.com/" aria-label="instagram"
+                                    target="_blank" rel="noopener noreferrer"><i
+                                        class="fa fa-instagram text-white li_hover" aria-hidden="true"></i></a></li>
+                            <li class="list-inline-item h5"><a href="http://twitter.com/" aria-label="twitter"
+                                    target="_blank" rel="noopener noreferrer"><i
+                                        class="fa fa-twitter text-white li_hover" aria-hidden="true"></i></a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
         <div class="container-fluid text-center bg-primary text-white py-2">
-            <p class="m-0">@Copyright <a class="h6 text-white text-decoration-none li_hover" href="#">Quick Shop.</a> All Rights Reserved.</p>
+            <p class="m-0">@Copyright <a class="h6 text-white text-decoration-none li_hover" href="#">Quick Shop.</a>
+                All Rights Reserved.</p>
         </div>
     </footer>
     <div>
         <a class="topbtn" href="#top" aria-label="top"><i class="fa fa-long-arrow-up" aria-hidden="true"></i></a>
     </div>
 
-    
+
     <script src="./Assets/js/common.js"></script>
     <script src="./Assets/js/home.js"></script>
     <script src="./Assets/js/logout.js"></script>
+    <script src="./Assets/js/product.js"></script>
 
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"

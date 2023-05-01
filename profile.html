@@ -70,8 +70,10 @@
                     </form>
                     <ul class="navbar-nav mb-2 mb-lg-0 menu d-block align-items-end ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link menu_item" href="./cart.html"><i class="fa fa-shopping-cart cart"
-                                    aria-hidden="true"></i> Cart</a>
+                            <a class="nav-link menu_item" href="./cart.html">
+                                Cart
+                                <i class="fa fa-shopping-cart" id="cart-badge" aria-hidden="true"></i>
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -83,8 +85,15 @@
         <div class="container w-50 h-50 border border-2 rounded-5 p-3 profile-box mb-5">
             <div class="row">
                 <div class="col-5 d-grid align-content-center text-center">
-                    <img alt="profile-img" src="./Assets/img/profile-img2.jpg"
-                        class="rounded-circle img-fluid w-50 d-block mx-auto">
+                    <div class="profile-pic d-flex justify-content-center align-items-center position-relative">
+                        <label class="-label" for="file">
+                            <span class="glyphicon glyphicon-camera"></span>
+                            <span>Change Image</span>
+                        </label>
+                        <input id="file" type="file" onchange="loadFile(event)" />
+                        <img src="./Assets/img/profile-img2.jpg" id="output" width="200"
+                            class="rounded-circle img-fluid w-50 d-block mx-auto position-absolute" alt="profile_pic" />
+                    </div>
                     <div id="profile-name" class="h5"></div>
                     <div id="profile-email" class="text-muted"></div>
                 </div>

@@ -1,13 +1,13 @@
-const totalPages = 4;
-let currentPage = 1; 
-var productAPI = `http://192.168.1.228:4000/api/product?page=${currentPage}`;
-var productList = document.querySelector('.product-list');
+let currentPage = 1;
+let productsPerPage = 0;
+var productAPI = `http://192.168.1.14:4000/api/product?page=${currentPage}&limit=${productsPerPage}`;
+let productList = document.querySelector('.product-list');
 
 function renderProducts() {
   fetch(productAPI)
     .then(response => response.json())
     .then(data => {
-      var products = data.products;
+      const products = data.products;
       productList.innerHTML = '';
 
       products.forEach(product => {
@@ -28,6 +28,13 @@ function renderProducts() {
         `;
         productList.insertAdjacentHTML('beforeend', productCardHtml);
       });
+      const totalProducts = data.productsCount;
+      const productsPerPage = data.resultPerPage;
+      const totalPages = Math.ceil(totalProducts / productsPerPage);
+
+      // Render pagination links here
+      const paginationLinks = generatePagination(totalPages, currentPage);
+      document.querySelector('.pagination-container').innerHTML = paginationLinks;
     });
 }
 
@@ -53,23 +60,20 @@ function generatePagination(totalPages, currentPage) {
 // Render initial products on page load
 renderProducts();
 
-const paginationLinks = generatePagination(totalPages, currentPage);
-document.querySelector('.pagination-container').innerHTML = paginationLinks;
-
 // Add click event listeners to pagination links
-const pageLinks = document.querySelectorAll('.pagination a[data-page]');
-pageLinks.forEach(link => {
-  link.addEventListener('click', function (e) {
+document.addEventListener('click', function(e) {
+  if (e.target && e.target.matches('.pagination a[data-page]')) {
     e.preventDefault();
-    currentPage = parseInt(link.dataset.page);
-    productAPI = `http://192.168.1.228:4000/api/product?page=${currentPage}`;
+    currentPage = parseInt(e.target.dataset.page);
+    productAPI = `http://192.168.1.14:4000/api/product?page=${currentPage}`;
     renderProducts();
     
     // Update active page link
     document.querySelector('.pagination .active_page').classList.remove('active_page');
-    link.classList.add('active_page');
-  });
+    e.target.classList.add('active_page');
+  }
 });
+
 
 
 
@@ -80,7 +84,12 @@ function filterProduct(category) {
     .then(response => response.json())
     .then(data => {
       var products = data.products;
-      var filteredProducts = products.filter(product => product.category === category);
+      var filteredProducts;
+      if (category) {
+        filteredProducts = products.filter(product => product.category === category);
+      } else {
+        filteredProducts = products;
+      }
 
       // Clear existing products
       productList.innerHTML = '';
@@ -149,4 +158,14 @@ function rangeproduct(minPrice, maxPrice) {
     .catch(error => {
       console.error('Error fetching products:', error);
     });
+}
+
+function setActiveCategory(link) {
+  
+  var links = document.querySelectorAll('.cat-type a');
+  var plinks = document.querySelectorAll('.price-type a');
+  links.forEach(link => link.classList.remove('active_category'));
+  plinks.forEach(link => link.classList.remove('active_category'));
+  
+  link.classList.add('active_category');
 }

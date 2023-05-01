@@ -13,6 +13,7 @@ const message = {
     OTP_VALID: "OTP must be 4 character",
     OTP_NUMBER: "OTP must be in numbers",
     NAME_REQ: "Name is required",
+    IMAGE_REQ: "Image is required",
 
     // toastr error message
     SIGNUP_ERROR: "Signup failed!",

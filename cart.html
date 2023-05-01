@@ -70,9 +70,11 @@
                     </form>
                     <ul class="navbar-nav mb-2 mb-lg-0 menu d-block align-items-end ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link menu_item active" href="#"><i class="fa fa-shopping-cart cart"
-                                    aria-hidden="true"></i> Cart</a>
-                        </li>
+                            <a class="nav-link menu_item active" href="./cart.html">
+                              Cart 
+                              <i class="fa fa-shopping-cart" id="cart-badge" aria-hidden="true"></i>
+                            </a>
+                          </li>
                     </ul>
                 </div>
             </div>
@@ -88,15 +90,23 @@
                 </div>
                 <div class="col-3">
                     <div class="card p-3 mt-2">
-                        <h4>Cart Summary</h4>
-                        <hr class="mt-1">
+                        <h4 class="mb-3">Cart Summary</h4>
                         <div class="d-flex justify-content-between align-items-center mb-2">
                             <span>Total Quantity:</span>
                             <span id="total-quantity"></span>
                         </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <span>Total Price:</span>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span>Total MRP:</span>
                             <span id="total-price"></span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span>Shipping Costs:</span>
+                            <span id="delivery-charge" class="text-success">Free</span>
+                        </div>
+                        <div class="mt-2 border border-top"></div>
+                        <div class="d-flex justify-content-between align-items-center my-2">
+                            <span>Total Amount:</span>
+                            <span id="total-price2"></span>
                         </div>
                         <div class="d-flex justify-content-between align-items-center mx-auto mt-3">
                             <button class="checkout px-4 py-2">
