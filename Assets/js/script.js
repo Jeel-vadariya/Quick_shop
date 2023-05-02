@@ -10,6 +10,9 @@ const input = document.getElementsByTagName('input');
 const profile_name = document.getElementById('input-profile-name');
 const profile_email = document.getElementById('input-profile-email');
 const profile_img = document.getElementById('file');
+// const contact_name = document.getElementById('contact-name');
+// const contact_email = document.getElementById('contact-email');
+// const contact_msg = document.getElementById('contact-msg');
 
 const setError = (element, message) => {
     const inputControl = element.parentElement;
@@ -115,7 +118,7 @@ const validate = (event) => {
     }
     else {
         setSuccess(password);
-        loginapi(); 
+        loginapi();
     }
 }
 
@@ -148,10 +151,10 @@ const validatenewpassword = (event) => {
         resetpassword();
     }
 
-    if(otpValue === ''){
+    if (otpValue === '') {
         setError(otp, message.OTP);
     }
-    else{
+    else {
         setSuccess(otp);
     }
 }
@@ -167,7 +170,7 @@ const validateforgotpassword = (event) => {
     else if (!isValidEmail(emailValue)) {
         setError(email, message.EMAIL_VALID);
     }
-    else{
+    else {
         setSuccess(email);
         forgotpassword();
     }
@@ -175,13 +178,13 @@ const validateforgotpassword = (event) => {
 const token = JSON.parse(localStorage.getItem("token"))
 // console.log(token);
 
-const updateprofile = (event,token) => {
+const updateprofile = (event, token) => {
     event.preventDefault();
     const profilenameValue = profile_name.value.trim();
     const profileemailValue = profile_email.value.trim();
     const profileimgValue = profile_img.value;
 
-    if(profilenameValue === ''){
+    if (profilenameValue === '') {
         setError(profile_name, message.NAME_REQ);
     }
     else {
@@ -195,13 +198,48 @@ const updateprofile = (event,token) => {
         setError(profile_email, message.EMAIL_VALID);
     }
     else {
-        setSuccess(profile_email);   
+        setSuccess(profile_email);
     }
 
-    if(profileimgValue === ''){
+    if (profileimgValue === '') {
         setError(profile_img, message.IMAGE_REQ);
     }
-    else{
-       updateuserprofile(token);
+    else {
+        setSuccess(profile_img);
+        updateuserprofile(token);
     }
 }
+
+// const displaydata = (event) => {
+
+//     event.preventDefault();
+//     const contactNameValue = contact_name.value.trim();
+//     const contactEmailValue = contact_email.value.trim();
+//     const contactMsgValue = contact_msg.value.trim();
+
+//     if (contactNameValue === '') {
+//         setError(contact_name, message.NAME_REQ);
+//     }
+//     else {
+//         setSuccess(contact_name);
+//     }
+
+//     if (contactEmailValue === '') {
+//         setError(contact_email, message.EMAIL_REQ);
+//     }
+//     else if (!isValidEmail(contactEmailValue)) {
+//         setError(contact_email, message.EMAIL_VALID);
+//     }
+//     else {
+//         setSuccess(contact_email);
+//     }
+
+//     if (contactMsgValue === '') {
+//         setError(contact_msg, message.MSG_REQ);
+//     }
+//     else {
+//         setSuccess(contact_msg);
+//         display();
+//     }
+
+// }

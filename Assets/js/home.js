@@ -3,7 +3,7 @@ if(localStorage.getItem(user_data) == true){
     Checkuser();
 }
 
-var productAPI = "http://192.168.1.14:4000/api/product";
+var productAPI = API + PRODUCTS;
 var totalitems = document.getElementById('totalproducts');
 
 fetch(productAPI)

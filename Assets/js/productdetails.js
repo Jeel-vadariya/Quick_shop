@@ -1,4 +1,4 @@
-var productAPI = 'http://192.168.1.14:4000/api/product';
+var productAPI = 'http://localhost:4000/api/product';
 var productDetails = document.querySelector('.product-details');
 
 // Get the product ID from the query parameter
@@ -12,7 +12,7 @@ fetch(productAPI + '/' + productId)
     console.log('product:', product);
 
     const productDetailsHtml = `
-  <div class="col-lg-4">
+  <div class="col-lg-4 d-grid align-content-center justify-content-center">
     <img class="img-fluid" src="${product.product.images[0].url}" alt="img">
   </div>
   <div class="col-lg-8">
@@ -27,7 +27,7 @@ fetch(productAPI + '/' + productId)
       <div class="modal-num-review mt-2 d-none">Number Of Reviews: ${product.product.numOfReviews}</div>
       ${product.product.numOfReviews > 0 ? `
         <div class="modal-review mt-2">Reviews:</div>
-        <div class="d-inline-flex">
+        <div class="d-inline-flex reviews">
         ${product.product.reviews.map(review => `
         
         <div class="col border border-3 card mt-2 review-box me-3">

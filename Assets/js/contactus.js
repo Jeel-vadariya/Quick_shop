@@ -7,7 +7,7 @@ Name.value = userinfo.user.name;
 Email.value = userinfo.user.email;
 
 function display(event) {
-    event.preventDefault();
+  event.preventDefault();
     var Name = document.getElementById("contact-name").value;
     var Email = document.getElementById('contact-email').value;
     var Comment = document.getElementById('contact-message');

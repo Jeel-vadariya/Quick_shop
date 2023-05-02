@@ -1,6 +1,6 @@
 let currentPage = 1;
 let productsPerPage = 0;
-var productAPI = `http://192.168.1.14:4000/api/product?page=${currentPage}&limit=${productsPerPage}`;
+var productAPI = `http://localhost:4000/api/product?page=${currentPage}&limit=${productsPerPage}`;
 let productList = document.querySelector('.product-list');
 
 function renderProducts() {
@@ -12,7 +12,7 @@ function renderProducts() {
 
       products.forEach(product => {
         const productCardHtml = `
-          <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
+          <div class=" col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-4">
             <div class="card h-100">
               <img class="card-img-top w-75 d-block mx-auto mt-3" src="${product.images[0].url}">
               <div class="card-body d-flex flex-column">
@@ -21,7 +21,7 @@ function renderProducts() {
               </div>
               <div class="card-footer d-flex justify-content-between align-items-center">
                 <div class="product-price">₹${product.price}</div>
-                <a class="btn btn-outline-primary px-3 buy-now-btn" data-product-id="${product._id}" href="./productdetails.html?id=${product._id}">Buy Now <i class="fa fa-angle-right arrow-1" aria-hidden="true"></i><i class="fa fa-angle-right arrow-2" aria-hidden="true"></i><i class="fa fa-angle-right arrow-3" aria-hidden="true"></i></a>
+                <a class="btn btn-outline-primary px-lg-3 px-md-2 buy-now-btn" data-product-id="${product._id}" href="./productdetails.html?id=${product._id}">Buy Now <i class="fa fa-angle-right arrow-1" aria-hidden="true"></i><i class="fa fa-angle-right arrow-2" aria-hidden="true"></i><i class="fa fa-angle-right arrow-3" aria-hidden="true"></i></a>
               </div>
             </div>
           </div>  
@@ -65,7 +65,7 @@ document.addEventListener('click', function(e) {
   if (e.target && e.target.matches('.pagination a[data-page]')) {
     e.preventDefault();
     currentPage = parseInt(e.target.dataset.page);
-    productAPI = `http://192.168.1.14:4000/api/product?page=${currentPage}`;
+    productAPI = `http://localhost:4000/api/product?page=${currentPage}`;
     renderProducts();
     
     // Update active page link

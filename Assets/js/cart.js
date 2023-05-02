@@ -21,24 +21,28 @@ function displaycartitem() {
       if (product) {
         cartcode += `
           <div class="row border border-2 rounded-3 mb-3 cart-item mt-2">
-            <div class="col-lg-2 cart-item-col-img ps-3 py-1">
+            <div class="col-md-3 col-lg-2 cart-item-col-img ps-3 py-1 text-center">
               <img class="img-fluid py-2 h-auto cart-product-img" src="${product.images[0].url}" alt="img">
             </div>
-            <div class="col-lg-5 cart-item-col">
+            <div class="col-md-9 col-lg-6 cart-item-col">
             <h4 class="modal-title">${product.name}</h4>
             <div class="modal-rating-cart mt-1">Ratings: ${product.ratings} <i class="fa fa-star text-warning" aria-hidden="true"></i></div>
             <div class="mt-1"><span class="days"><i class="fa fa-undo" aria-hidden="true"></i> 10 days</span> return available</div>
           </div>
-          <div class="col-lg-2 cart-item-col text-center">
+          <div class="row container-fluid col-lg-4 ps-0 mx-auto mb-sm-2 price-delete-cart">
+          <div class="row col-xl-10 col-lg-9 col-sm-8 container-fluid p-0">
+          <div class="col-xl-5 col-lg-12 col-sm-6 cart-item-col text-center">
             <div class="modal-price mt-1 h4">₹${product.price}</div>
           </div>
-            <div class="col-lg-2 cart-item-col mt-2">
+            <div class="col-xl-7 col-lg-12 col-sm-6 cart-item-col mt-2 text-center p-0">
                 <input type="button" onclick="decrementValue(this, ${item.id})" value="-" class="btn btn-primary py-1 minus_btn"/>
                 <input type="text" name="quantity" value="${item.quantity}" maxlength="2" max="10" size="1" class="text-center" readonly/>
                 <input type="button" onclick="incrementValue(this, ${item.id})" value="+" class="btn btn-primary px-2 py-1"/>
             </div>
-            <div class="col-lg-1 cart-item-col text-center mt-2">
-            <button class="btn btn-danger" onclick="removeItem(${item.id})"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+            </div>
+            <div class="col-xl-2 col-lg-3 col-sm-4 cart-item-col text-center mt-2">
+            <button class="btn btn-outline-danger" onclick="removeItem(${item.id})"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+          </div>
           </div>
           </div>
         `;

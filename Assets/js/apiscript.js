@@ -119,7 +119,7 @@ function updateuserprofile(token) {
             person.img = $('#file').val()
             console.log(person);
             $.ajax({
-                url: "http://192.168.1.14:4000/api/me/update", 
+                url: "http://localhost:4000/api/me/update", 
                 headers: {
                     Accept: "application/json",
                     "Content-Type": "application/json",

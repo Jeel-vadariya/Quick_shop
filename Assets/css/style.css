@@ -328,8 +328,6 @@ main {
 
 .contact-input {
     font-family: 'League Spartan', sans-serif;
-    width: 700px;
-    min-width: 400px;
     border-radius: 5px;
     border: 1px solid #0074d9;
 }
@@ -350,8 +348,6 @@ main {
 
 .contact-btn {
     font-family: 'League Spartan', sans-serif;
-    width: 700px;
-    min-width: 400px;
     font-size: 18px;
 }
 
@@ -362,9 +358,8 @@ main {
 
 .contact-msg {
     height: 120px;
+    width: 100%;
     font-family: 'League Spartan', sans-serif;
-    width: 700px;
-    min-width: 400px;
     border-radius: 5px;
     border: 1px solid #0074d9;
 }
@@ -416,18 +411,7 @@ main {
 #input-profile-createdate:hover {
     border: 1px solid #99bdf1;
 }
-.badge:after{
-    content:attr(value);
-    font-size:12px;
-    color: #fff;
-    background: red;
-    border-radius:50%;
-    padding: 0 5px;
-    position:relative;
-    left:65px;
-    top:-10px;
-    opacity:0.9;
-}
+
 
 .checkout {
     -webkit-appearance: none;
@@ -574,6 +558,9 @@ main {
     #mainborder_reset_password {
         margin-top: 130px !important;
     }
+    .cart-item{
+        height: auto !important;
+    }
 }
 
 @media (max-width: 768px) {
@@ -591,5 +578,25 @@ main {
     #signup_part {
         padding-left: 0px !important;
         margin-top: 10px !important;
+    }
+    .cart-item{
+        height: auto !important;
+    }
+    .reviews{
+        flex-direction: column;
+    }
+    .review-box{
+        margin-bottom: 7px;
+    }
+    
+}
+@media (max-width: 580px){
+    .price-delete-cart{
+        text-align: left;
+        display: grid;
+        justify-items: center;
+        justify-content: start;
+        margin-bottom: 20px;
+        margin-top: 10px;
     }
 }
