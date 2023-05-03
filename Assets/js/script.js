@@ -205,7 +205,6 @@ const updateprofile = (event, token) => {
         setError(profile_img, message.IMAGE_REQ);
     }
     else {
-        setSuccess(profile_img);
         updateuserprofile(token);
     }
 }

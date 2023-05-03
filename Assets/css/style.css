@@ -1,3 +1,17 @@
+@keyframes show-confirmation {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .confirmation {
+    animation-name: show-confirmation;
+    animation-duration: 5s;
+    opacity: 0;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 .profile-pic {
     color: transparent;
     transition: all 0.3s ease;
@@ -170,6 +184,9 @@ main {
 #nav_button {
     align-items: flex-end;
 }
+.blog_links:hover{
+    color: #0074d9 !important;
+}
 
 .active,
 .menu_item:hover {
@@ -302,9 +319,11 @@ main {
     background: #F86379;
 
 }
-
-.blog-date {
-    font-size: 14px;
+.blog_links{
+    font-size: 17px;
+}
+.blog-location {
+    font-size: 15px;
     font-family: 'League Spartan', sans-serif;
 }
 
@@ -316,7 +335,7 @@ main {
 }
 
 .blog-text {
-    font-size: 22px;
+    font-size: 20px;
     text-align: justify;
     font-family: 'League Spartan', sans-serif;
 }
@@ -598,5 +617,8 @@ main {
         justify-content: start;
         margin-bottom: 20px;
         margin-top: 10px;
+    }
+    .blog-details{
+        margin-top: 20px;
     }
 }
