@@ -18,6 +18,7 @@ function displaycartitem() {
   const cart = JSON.parse(localStorage.getItem('cart'));
 
   const cartItems = document.querySelector('#cart-items');
+  const wholecart = document.querySelector('.whole-cart');
   const totalQuantity = document.querySelector('#total-quantity');
   const totalPrice = document.getElementById('total-price');
   const totalPrice2 = document.getElementById('total-price2');
@@ -67,9 +68,9 @@ function displaycartitem() {
     totalPrice.textContent = `₹${priceTotal}`;
     totalPrice2.textContent = `₹${priceTotal}`;
   } else {
-    cartItems.innerHTML = `
+    wholecart.innerHTML = `
     <div class="text-center">
-    <img src="./Assets/img/empty-cart.jpg" alt="img" class="w-50 h-50">
+    <img src="./Assets/img/empty-cart.jpg" alt="img" class="w-75">
     <h3>Your Cart is Empty!</h3>
     <div>Looks like you haven't added anything to your cart yet</div>
     <a href="./products.html" class="btn btn-primary align-items-center mt-2 px-4">Continue Shopping</a>

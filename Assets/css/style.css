@@ -308,6 +308,9 @@ main {
     background: #90C93E;
 
 }
+.ui-dialog .ui-dialog-titlebar .ui-dialog-titlebar-close{
+    display: none;
+}
 
 .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset .nocls {
     font-size: 15px;

@@ -1,5 +1,5 @@
 let currentPage = 1;
-let productsPerPage = 0;
+let productsPerPage = 6;
 var productAPI = `http://localhost:4000/api/product?page=${currentPage}&limit=${productsPerPage}`;
 let productList = document.querySelector('.product-list');
 
@@ -29,18 +29,19 @@ function renderProducts() {
         productList.insertAdjacentHTML('beforeend', productCardHtml);
       });
       const totalProducts = data.productsCount;
-      const productsPerPage = data.resultPerPage;
       const totalPages = Math.ceil(totalProducts / productsPerPage);
 
-      // Render pagination links here
-      const paginationLinks = generatePagination(totalPages, currentPage);
-      document.querySelector('.pagination-container').innerHTML = paginationLinks;
+      if (totalPages > 1 || (totalPages === 1 && products.length > productsPerPage)) {
+        const paginationLinks = generatePagination(totalPages, currentPage);
+        document.querySelector('.pagination-container').innerHTML = paginationLinks;
+      }
+
     });
 }
 
 function generatePagination(totalPages, currentPage) {
   let paginationHTML = '<div class="pagination">';
-  
+
   // Page links
   for (let i = 1; i <= totalPages; i++) {
     if (i === currentPage) {
@@ -49,38 +50,30 @@ function generatePagination(totalPages, currentPage) {
       paginationHTML += `<a href="#" data-page="${i}">${i}</a>`;
     }
   }
-  
   paginationHTML += '</div>';
-  
+
   return paginationHTML;
 }
-
-
 
 // Render initial products on page load
 renderProducts();
 
 // Add click event listeners to pagination links
-document.addEventListener('click', function(e) {
+document.addEventListener('click', function (e) {
   if (e.target && e.target.matches('.pagination a[data-page]')) {
     e.preventDefault();
     currentPage = parseInt(e.target.dataset.page);
-    productAPI = `http://localhost:4000/api/product?page=${currentPage}`;
+    productAPI = `http://localhost:4000/api/product?page=${currentPage}&limit=${productsPerPage}`;
     renderProducts();
-    
+
     // Update active page link
     document.querySelector('.pagination .active_page').classList.remove('active_page');
     e.target.classList.add('active_page');
   }
 });
 
-
-
-
-
 function filterProduct(category) {
-
-  fetch(productAPI)
+  fetch(`http://localhost:4000/api/product`)
     .then(response => response.json())
     .then(data => {
       var products = data.products;
@@ -93,7 +86,13 @@ function filterProduct(category) {
 
       // Clear existing products
       productList.innerHTML = '';
-      filteredProducts.forEach(product => {
+
+      // Render products
+      const startIndex = (currentPage - 1) * productsPerPage;
+      const endIndex = startIndex + productsPerPage;
+      const paginatedProducts = filteredProducts.slice(startIndex, endIndex);
+
+      paginatedProducts.forEach(product => {
         const productCardHtml = `
           <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
             <div class="card h-100">
@@ -112,10 +111,23 @@ function filterProduct(category) {
 
         productList.insertAdjacentHTML('beforeend', productCardHtml);
       });
+
+      // Render pagination
+      const totalProducts = filteredProducts.length;
+      if (totalProducts > productsPerPage) {
+        const totalPages = Math.ceil(totalProducts / productsPerPage);
+        const paginationLinks = generatePagination(totalPages, currentPage);
+        document.querySelector('.pagination-container').innerHTML = paginationLinks;
+      } else {
+        document.querySelector('.pagination-container').innerHTML = '';
+      }
     });
 }
+
+
+
 function rangeproduct(minPrice, maxPrice) {
-  fetch(productAPI)
+  fetch(`http://localhost:4000/api/product`)
     .then(response => response.json())
     .then(data => {
       var products = data.products;
@@ -154,6 +166,14 @@ function rangeproduct(minPrice, maxPrice) {
 
         productList.insertAdjacentHTML('beforeend', productCardHtml);
       });
+      const totalProducts = filteredProducts.length;
+      if (totalProducts > productsPerPage) {
+        const totalPages = Math.ceil(totalProducts / productsPerPage);
+        const paginationLinks = generatePagination(totalPages, currentPage);
+        document.querySelector('.pagination-container').innerHTML = paginationLinks;
+      } else {
+        document.querySelector('.pagination-container').innerHTML = '';
+      }
     })
     .catch(error => {
       console.error('Error fetching products:', error);
@@ -161,11 +181,11 @@ function rangeproduct(minPrice, maxPrice) {
 }
 
 function setActiveCategory(link) {
-  
+
   var links = document.querySelectorAll('.cat-type a');
   var plinks = document.querySelectorAll('.price-type a');
   links.forEach(link => link.classList.remove('active_category'));
   plinks.forEach(link => link.classList.remove('active_category'));
-  
+
   link.classList.add('active_category');
 }

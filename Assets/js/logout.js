@@ -19,7 +19,7 @@ function logout() {
                 {
                     text: 'No',
                     open: function () { $(this).addClass('nocls') },
-                    click: function () { $(this).dialog("close"); }
+                    click: function () { $(this).dialog("close"); location.reload();}
                 }
             ]
         });
