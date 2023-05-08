@@ -2,11 +2,11 @@ const btn = document.querySelector('.checkout');
 const cart_items = document.querySelector('.cart-products');
 btn.addEventListener('click', () => {
   document.documentElement.classList.toggle('checked-out');
-  setTimeout(function () {
-    localStorage.removeItem('cart');
-    location.reload();
-    location.href = "home.html";
-  }, 2000);
+  // setTimeout(function () {
+  //   localStorage.removeItem('cart');
+  //   location.reload();
+  //   location.href = "home.html";
+  // }, 2000);
 });
 function thankyou(){
   cart_items.innerHTML = `
