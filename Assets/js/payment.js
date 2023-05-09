@@ -1,18 +1,17 @@
 var stripe = Stripe(
-    "pk_test_51N5NEvSAYByrhXREDvsrT0Q4z4DIgcoVh7UU0HDADjnew0bXdRN0prNBqu9NIffBk8jJeXVtB71P0IM8xrQeogGD00vWaPOrdu"
+    "pk_test_51Mw0YdSC9csYlBSxe39Uhg8TPw9azOIpiHUJFO0RNrEUwZ5E57aZBLEgLKMDVMwwMC33ynLhhITwnBK7EVqC4Eil00N1P1tYgB"
 );
-document.getElementById("checkout-btn").addEventListener("click", function(){
+document.getElementById("").addEventListener("click", function(){
     stripe.redirectToCheckout({
-        lineItems: [
-            {
-                price: updateCartTotal.totalPrice,
-                quantity: updateCartTotal.totalQuantity,
-            },
-        ],
-        mode: "subscription",
-        successUrl: "http://localhost:8090/project/home.html",
-        cancelUrl: "http://localhost:8090/project/cart.html",
+        amount: "500",
+        // mode: "subscription",
+        // successUrl: "http://localhost:8090/project/home.html",
+        // cancelUrl: "http://localhost:8090/project/cart.html",
     }).then(function(result){
         alert(result)
-    })
+        fetch("process/payment",{
+            method:"POST",
+            body:600
+        }).then(response => response.json())
+    
 })

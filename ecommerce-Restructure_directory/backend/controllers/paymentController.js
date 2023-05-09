@@ -24,3 +24,18 @@ exports.processPayment = catchAsyncErrors(async (req, res, next) => {
 exports.sendStripeApiKey = catchAsyncErrors(async (req, res, next) => {
   res.status(200).json({ stripeApiKey: process.env.STRIPE_API_KEY });
 });
+
+exports.processPayment1 = catchAsyncErrors(async (req, res, next) => {
+session = await stripe.checkout.sessions.create({
+ amount:req.body.amount,
+  payment_intent_data: {
+    application_fee_amount: 123,
+    transfer_data: {
+      destination: '{{CONNECTED_ACCOUNT_ID}}',
+    },
+  },
+  mode: 'payment',
+  success_url: 'https://example.com/success',
+  cancel_url: 'https://example.com/failure',
+});
+})
