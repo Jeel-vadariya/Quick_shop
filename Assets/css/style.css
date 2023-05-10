@@ -237,6 +237,12 @@ main {
 
 #sitename {
     font-family: sans-serif;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: xx-large;
+}
+#sitename:hover{
+    color: black !important;
 }
 
 .li_hover:hover {
