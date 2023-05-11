@@ -1,14 +1,13 @@
-const btn = document.querySelector('.checkout');
+const btn = document.getElementById('checkout-button');
 const cart_items = document.querySelector('.cart-products');
 btn.addEventListener('click', () => {
   document.documentElement.classList.toggle('checked-out');
+  setTimeout(function () {
+    localStorage.removeItem('cart');
+    location.href = 'http://localhost:8090/project/home.html';
+  },1500);
   
 });
-function thankyou(){
-  cart_items.innerHTML = `
-    <div class="text-bg-info h2">Thank you!!</div>
-  `; 
-}
 
 function displaycartitem() {
   const cart = JSON.parse(localStorage.getItem('cart'));
@@ -141,3 +140,18 @@ function updateCartTotal() {
   document.getElementById('total-price2').textContent = `₹${totalPrice}`;
   carticonquantity();
 }
+
+// var stripe = Stripe(
+//   "pk_test_51Mw0YdSC9csYlBSxe39Uhg8TPw9azOIpiHUJFO0RNrEUwZ5E57aZBLEgLKMDVMwwMC33ynLhhITwnBK7EVqC4Eil00N1P1tYgB"
+// );
+// document.getElementById("checkout-btn").addEventListener("click", function(){
+//   stripe.redirectToCheckout({
+//       amount: "500",
+//       mode: "subscription",
+//       successUrl: "http://localhost:8090/project/home.html",
+//       cancelUrl: "http://localhost:8090/project/cart.html",
+//   })
+//   .then(function(result){
+//       alert(result)
+//   })
+// })
