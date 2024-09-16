@@ -13,10 +13,13 @@ function apicalling() {
                 data: person,
                 success: function (data, textStatus, xhr) {
                     console.log(data);
-                    storage();
+                    toastr.success("Your account successfully created!");
+                    setTimeout(function () {
+                        window.location.href = 'login.html';
+                    }, 500);
                 },
                 error: function (xhr, textStatus, errorThrown) {
-                    console.log(message.SIGNUP_ERROR);
+                    toastr.error(message.SIGNUP_ERROR);
                 },
                 timeout: 5000
             });
@@ -41,7 +44,7 @@ function loginapi() {
                     loginstorage(data);
                 },
                 error: function (xhr, textStatus, errorThrown) {
-                    console.log(message.LOGIN_ERROR);
+                    toastr.error(message.LOGIN_ERROR);
                 },
                 timeout: 5000
             });
@@ -61,9 +64,13 @@ function forgotpassword() {
                 data: person,
                 success: function (data, textStatus, xhr) {
                     console.log(data);
+                    toastr.success("OTP successfully sent to your email!");
+                    setTimeout(function () {
+                        window.location.href = 'reset_password.html';
+                    }, 500);
                 },
                 error: function (xhr, textStatus, errorThrown) {
-                    console.log(message.FORGOT_ERROR);
+                    toastr.error(message.FORGOT_ERROR);
                 },
                 timeout: 5000
             });
@@ -72,24 +79,61 @@ function forgotpassword() {
 };
 
 
-function resetpassword() {  
+function resetpassword() {
     $(document).ready(function () {
         $("#resetbtn").click(function () {
             var person = new Object();
             const token = window.location.href.split('=')[1];
+            person.otp = $('#otp').val();
             person.password = $('#new-password').val(),
-                person.confirmPassword = $('#confirm-new-password').val()
-                console.log(person);
+                person.confirmPassword = $('#confirm-password').val()
+            console.log(person);
             $.ajax({
-                url: `http://192.168.1.252:4000/api/password/reset/${token}`,
+                url: API + RESET,
                 type: 'PUT',
                 dataType: 'json',
                 data: person,
                 success: function (data, textStatus, xhr) {
                     console.log(data);
+                    toastr.success("Password successfully changed!");
+                    setTimeout(function () {
+                        window.location.href = 'login.html';
+                    }, 500);
+                    Checkuser();
                 },
                 error: function (xhr, textStatus, errorThrown) {
-                    console.log(message.RESET_ERROR);
+                    toastr.error(message.RESET_ERROR);
+                },
+                timeout: 5000
+            });
+        });
+    });
+};
+
+function updateuserprofile(token) {
+    $(document).ready(function () {
+        $("#updateinfo").click(function () {
+            var person = new Object();
+            person.name = $('#input-profile-name').val(),
+            person.email = $('#input-profile-email').val(),
+            person.img = $('#file').val()
+            console.log(person);
+            $.ajax({
+                url: "http://localhost:4000/api/me/update", 
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json",
+                    Authorization: `${token}`,
+                },
+                type: 'PUT',
+                dataType: 'json',
+                data: person,
+                success: function (data, textStatus, xhr) {
+                    console.log(data);
+                    toastr.success("Data successfully updated!");
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    toastr.error(message.RESET_ERROR);
                 },
                 timeout: 5000
             });

@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
@@ -34,7 +36,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </div>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mb-2 mb-lg-0 menu">
+                    <ul class="navbar-nav mb-2 mb-lg-0 menu" id="menu">
                         <li class="nav-item">
                             <a class="nav-link menu_item active" href="#">Home</a>
                         </li>
@@ -42,26 +44,28 @@
                             <a class="nav-link menu_item" href="./products.html">Products</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link menu_item" href="#">Men's</a>
+                            <a class="nav-link menu_item" href="./blogs.html">Blogs</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link menu_item" href="#">Women's</a>
+                            <a class="nav-link menu_item" href="./profile.html" id="profile_nav">Profile</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link menu_item" href="#">Blogs</a>
+                            <a class="nav-link menu_item" href="./contactus.html">Contact Us</a>
                         </li>
-                        <li class="nav-item me-2">
-                            <a class="nav-link menu_item" href="#">Profile</a>
+                        <li class="nav-item" id="login_nav">
+                            <a class="nav-link menu_item" href="./login.html">Login</a>
+                        </li>
+                        <li class="nav-item" id="signup_nav">
+                            <a class="nav-link menu_item" href="./signup.html">Signup</a>
                         </li>
                     </ul>
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search">
-                        <button class="btn btn-outline-primary" type="submit">Search</button>
-                    </form>
                     <ul class="navbar-nav mb-2 mb-lg-0 menu d-block align-items-end ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link menu_item" href="#"><i class="fa fa-shopping-cart cart" aria-hidden="true"></i> Cart</a>
-                        </li>
+                            <a class="nav-link menu_item" href="./cart.html">
+                              Cart 
+                              <i class="fa fa-shopping-cart" id="cart-badge" aria-hidden="true"></i>
+                            </a>
+                          </li>
                     </ul>
                 </div>
             </div>
@@ -103,13 +107,21 @@
                 </button>
             </div>
         </div>
-        <div class="container">
-            
+        <div class="container mt-5">
+            <div>
+                <div id="totalproducts"></div>
+                <div class="row product-list mt-2 products-container">
+
+                </div>
+            </div>
+            <div class="d-block mx-auto text-center mt-5 pagination-container">
+
+            </div>
         </div>
     </main>
     <footer class="mt-4">
         <!-- place footer here -->
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
                 <div class="col-md-4">
                     <div class="container-fluid">
@@ -142,66 +154,81 @@
                 </div>
             </div>
         </div>
-        <div class="container-fluid text-white">
-            <div class="row">
-                <div class="col-md-3 bg-primary">
-                    <div class="mt-4">
-                        <h2 id="sitename">Quick Shop</h2>
-                        <!-- <img src="./Assets/img/logo.jpg" alt="logo" class="logo"> -->
-                        <p class="mt-2">We are design and product obsessed. Uncompromising in the style, quality and
-                            performance of every product we create.</p>
-                        <p class="mt-2">This is a demonstration of the Symmetry theme for Shopify. Essentials, Outerwear
-                            & Activewear kindly donated by Varley.</p>
+        <div class="container-fluid text-white bg-primary">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 bg-primary">
+                        <div class="mt-4">
+                            <a href="home.html" class="text-white" id="sitename">Quick Shop</a>
+                            <!-- <img src="./Assets/img/logo.jpg" alt="logo" class="logo"> -->
+                            <p class="mt-2">We are design and product obsessed. Uncompromising in the style, quality and
+                                performance of every product we create.</p>
+                            <p class="mt-2">This is a demonstration of the Symmetry theme for Shopify. Essentials, Outerwear
+                                & Activewear kindly donated by Varley.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-3 bg-primary">
-                    <div class="mt-4">
-                        <h5 class="border-bottom">About Us</h5>
-                        <ul class="list-unstyled">
-                            <li class="mb-2 mt-3 li_hover">Contact Us</li>
-                            <li class="mb-2 li_hover">Help and Advice</li>
-                            <li class="mb-2 li_hover">Shipping & Returns</li>
-                            <li class="mb-2 li_hover">Terms and Conditions</li>
-                            <li class="mb-2 li_hover">Refund Policy</li>
-                        </ul>
+                    <div class="col-md-3 bg-primary">
+                        <div class="mt-4">
+                            <h5 class="border-bottom">About Us</h5>
+                            <ul class="list-unstyled">
+                                <li class="mb-2 mt-3"><a aria-label="footer" href="#" class="li_hover text-white text-decoration-none">Contact Us</a></li>
+                                <li class="mb-2"><a aria-label="footer" href="#" class="li_hover text-white text-decoration-none">Help and Advice</a></li>
+                                <li class="mb-2"><a aria-label="footer" href="#" class="li_hover text-white text-decoration-none">Shipping & Returns</a></li>
+                                <li class="mb-2"><a aria-label="footer" href="#" class="li_hover text-white text-decoration-none">Terms and Conditions</a></li>
+                                <li class="mb-2"><a aria-label="footer" href="#" class="li_hover text-white text-decoration-none">Refund Policy</a></li>
+                            </ul>
+                        </div>
+    
                     </div>
-
-                </div>
-                <div class="col-md-3 bg-primary">
-                    <div class="mt-4">
-                        <h5 class="border-bottom">Our Shop</h5>
-                        <ul class="list-unstyled">
-                            <li class="mb-2 mt-3 li_hover">New Arrivals</li>
-                            <li class="mb-2 li_hover">Top Trending</li>
-                            <li class="mb-2 li_hover">Denim Collection</li>
-                            <li class="mb-2 li_hover">sweatshirt</li>
-                            <li class="mb-2 li_hover">Jackets</li>
-                        </ul>
+                    <div class="col-md-3 bg-primary">
+                        <div class="mt-4">
+                            <h5 class="border-bottom">Our Shop</h5>
+                            <ul class="list-unstyled">
+                                <li class="mb-2 mt-3"><a aria-label="footer" href="#" class="li_hover text-white text-decoration-none">New Arrivals</a></li>
+                                <li class="mb-2"><a aria-label="footer" href="#" class="li_hover text-white text-decoration-none">Top Trending</a></li>
+                                <li class="mb-2"><a aria-label="footer" href="#" class="li_hover text-white text-decoration-none">Denim Collection</a></li>
+                                <li class="mb-2"><a aria-label="footer" href="#" class="li_hover text-white text-decoration-none">sweatshirt</a></li>
+                                <li class="mb-2"><a aria-label="footer" href="#" class="li_hover text-white text-decoration-none">Jackets</a></li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-3 bg-primary">
-                    <div class="mt-4">
-                        <h5 class="border-bottom">Newsletter</h5>
-                        <p>Get 15% off your first purchaxse! Plus, be the first to know about sales, new product
-                            launches and exclusive offers!</p>
-                        <h5 class="border-bottom">Visit us:</h5>
-                        <ul class="list-unstyled list-inline">
-                            <li class="list-inline-item me-3 h5"><a href="http://facebook.com/" aria-label="facebook" target="_blank" rel="noopener noreferrer"><i class="fa fa-facebook text-white li_hover" aria-hidden="true"></i></a></li>
-                            <li class="list-inline-item me-3 h5"><a href="http://instagram.com/" aria-label="instagram" target="_blank" rel="noopener noreferrer"><i class="fa fa-instagram text-white li_hover" aria-hidden="true"></i></a></li>
-                            <li class="list-inline-item h5"><a href="http://twitter.com/" aria-label="twitter" target="_blank" rel="noopener noreferrer"><i class="fa fa-twitter text-white li_hover" aria-hidden="true"></i></a></li>
-                        </ul>
+                    <div class="col-md-3 bg-primary">
+                        <div class="mt-4">
+                            <h5 class="border-bottom">Newsletter</h5>
+                            <p>Get 15% off your first purchaxse! Plus, be the first to know about sales, new product
+                                launches and exclusive offers!</p>
+                            <h5 class="border-bottom">Visit us:</h5>
+                            <ul class="list-unstyled list-inline">
+                                <li class="list-inline-item me-3 h5"><a href="http://facebook.com/" aria-label="facebook"
+                                        target="_blank" rel="noopener noreferrer"><i
+                                            class="fa fa-facebook text-white li_hover" aria-hidden="true"></i></a></li>
+                                <li class="list-inline-item me-3 h5"><a href="http://instagram.com/" aria-label="instagram"
+                                        target="_blank" rel="noopener noreferrer"><i
+                                            class="fa fa-instagram text-white li_hover" aria-hidden="true"></i></a></li>
+                                <li class="list-inline-item h5"><a href="http://twitter.com/" aria-label="twitter"
+                                        target="_blank" rel="noopener noreferrer"><i
+                                            class="fa fa-twitter text-white li_hover" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
+            
         </div>
         <div class="container-fluid text-center bg-primary text-white py-2">
-            <p class="m-0">@Copyright <a class="h6 text-white text-decoration-none li_hover" href="#">Quick Shop.</a> All Rights Reserved.</p>
+            <p class="m-0">@Copyright <a class="h6 text-white text-decoration-none li_hover" href="#">Quick Shop.</a>
+                All Rights Reserved.</p>
         </div>
     </footer>
     <div>
         <a class="topbtn" href="#top" aria-label="top"><i class="fa fa-long-arrow-up" aria-hidden="true"></i></a>
     </div>
 
+
+    <script src="./Assets/js/api.js"></script>
+    <script src="./Assets/js/common.js"></script>
+    <script src="./Assets/js/home.js"></script>
+    <script src="./Assets/js/logout.js"></script>
     <script src="./Assets/js/product.js"></script>
 
     <!-- Bootstrap JavaScript Libraries -->

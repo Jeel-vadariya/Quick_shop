@@ -9,6 +9,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+    <!-- Toastr CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
@@ -23,48 +29,198 @@
 </head>
 
 <body>
-    <div class="mt-2"><img src="./Assets/img/logo.jpg" alt="logo" class="img-fluid logo mx-auto d-block"></div>
-    <div class="container mt-3 px-5 border border-primary border-opacity-50 rounded-5" id="mainborder_login">
-        <div class="row">
-            <div class="col-md-6">
-                <img src="./Assets/img/4957136.jpg" class="img-fluid" alt="login" id="login_img">
-            </div>
-            <div class="col-md-6 p-0 ps-4 mt-5" id="login_part">
-                <h2 class="text-center" id="login_name">Login</h2>
-                <form id="form" method="post" onsubmit="validate(event);">
-                    <input type="hidden" name="num" id="num"> 
-                    <div class="mt-4 field input-control">
-                        <lable for="emailid" class="form-label" id="emailid_name">Email-id:</lable>
-                        <input type="text" id="emailid" name="emailid" placeholder="Email"
-                            class="mt-1 form-control border border-primary border-opacity-50">
-                        <div class="error"></div>
-                    </div>
+    <header>
+        <!-- place navbar here -->
+        <nav class="navbar navbar-expand-lg bg-white fixed-top">
+            <div class="container-fluid main-container">
+                <img class="navbar-brand img-fluid home_logo" src="./Assets/img/logo.jpg" alt="logo">
 
-                    <div class="mt-4">
-                        <lable for="password" class="form-label" id="password_name">Password:</lable>
-                        <div class="field input-control input-group ">
-                            <input type="password" id="password" name="password" placeholder="Password"
-                                class="mt-1 form-control border border-primary border-opacity-50 logpassword">
-                            <i class="fa fa-eye-slash input-group-text" aria-hidden="true"></i>
-                            <div class="error w-100"></div>
+                <div class="navbar-toggler" type="button" data-bs-toggle="collapse" id="nav_button"
+                    data-bs-target="#navbarSupportedContent">
+                    <span class="navbar-toggler-icon"></span>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mb-2 mb-lg-0 menu" id="menu">
+                        <li class="nav-item">
+                            <a class="nav-link menu_item" href="./home.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu_item" href="./products.html">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu_item" href="./blogs.html">Blogs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu_item" href="./profile.html" id="profile_nav">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu_item" href="./contactus.html">Contact Us</a>
+                        </li>
+                        <li class="nav-item" id="login_nav">
+                            <a class="nav-link menu_item active" href="#">Login</a>
+                        </li>
+                        <li class="nav-item" id="signup_nav">
+                            <a class="nav-link menu_item" href="./signup.html">Signup</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav mb-2 mb-lg-0 menu d-block align-items-end ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link menu_item" href="./cart.html"><i class="fa fa-shopping-cart cart"
+                                    aria-hidden="true"></i> Cart</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- <div class="mt-2"><img src="./Assets/img/logo.jpg" alt="logo" class="img-fluid logo mx-auto d-block"></div> -->
+    <main class="mt-5 pt-5">
+        <div class="container px-5 border border-primary border-opacity-50 rounded-5" id="mainborder_login">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="./Assets/img/4957136.jpg" class="img-fluid" alt="login" id="login_img">
+                </div>
+                <div class="col-md-6 p-0 ps-4 mt-5" id="login_part">
+                    <h2 class="text-center" id="login_name">Login</h2>
+                    <form id="form" method="post" onsubmit="validate(event);">
+                        <input type="hidden" name="num" id="num">
+                        <div class="mt-4 field input-control">
+                            <lable for="emailid" class="form-label" id="emailid_name">Email Address:</lable>
+                            <input type="text" id="emailid" name="emailid" placeholder="Enter your email address"
+                                class="mt-1 form-control border border-primary border-opacity-50">
+                            <div class="error"></div>
+                        </div>
+
+                        <div class="mt-4">
+                            <lable for="password" class="form-label" id="password_name">Password:</lable>
+                            <div class="field input-control input-group ">
+                                <input type="password" id="password" name="password" placeholder="Enter your password"
+                                    class="mt-1 form-control border border-primary border-opacity-50 logpassword">
+                                <i class="fa fa-eye input-group-text eye-btn" aria-hidden="true"
+                                    id="toggle_pass"></i>
+                                <div class="error w-100"></div>
+                            </div>
+                        </div>
+                        <a class="form-text float-end text-decoration-none" id="forgot"
+                            href="./forgot_password.html">Forgot
+                            Password?</a>
+                        <input type="hidden" name="tokenid" id="tokenid">
+                        <div class="text-center mt-5 field_btn">
+                            <button type="submit" class="btn btn-outline-primary px-5 submit_btn"
+                                id="loginbtn">Submit</button>
+                        </div>
+                        <div class="text-center mt-4 field">
+                            <p id="question">Don't have an account?<a class="text-primary text-decoration-none"
+                                    id="signup" href="./signup.html"> Sign Up</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <footer class="mt-4">
+        <!-- place footer here -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-2 text-center"><i class="fa fa-truck h2" aria-hidden="true"></i></div>
+                            <div class="col-10"><span class="h6">Free Shipping</span> on all order above <i
+                                    class="fa fa-inr" aria-hidden="true"></i>1000</div>
                         </div>
                     </div>
-                    <a class="form-text float-end text-decoration-none" id="forgot" href="./forgot_password.html">Forgot
-                        Password?</a>
-                    <input type="hidden" name="tokenid" id="tokenid"> 
-                    <div class="text-center mt-5 field_btn">
-                        <button type="submit" class="btn btn-outline-primary px-5 submit_btn"
-                            id="loginbtn">Submit</button>
+                </div>
+                <div class="col-md-4">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-2 text-center"><i class="fa fa-phone h2" aria-hidden="true"></i>
+                            </div>
+                            <div class="col-10"><span class="h6">Support 24/7: </span>Contact us 24 hours a day, 7 days
+                                a week</div>
+                        </div>
                     </div>
-                    <div class="text-center mt-4 field">
-                        <p id="question">Don't have an account?<a class="text-primary text-decoration-none" id="signup"
-                                href="./signup.html"> Sign Up</a></p>
+                </div>
+                <div class="col-md-4">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-2 text-center"><i class="fa fa-exchange h2" aria-hidden="true"></i>
+                            </div>
+                            <div class="col-10"><span class="h6">30 Days Return: </span>Simply return it within 30 days
+                                for an exchange.</div>
+                        </div>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
+        <div class="container-fluid text-white bg-primary">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 bg-primary">
+                        <div class="mt-4">
+                            <a href="home.html" class="text-white" id="sitename">Quick Shop</a>
+                            <!-- <img src="./Assets/img/logo.jpg" alt="logo" class="logo"> -->
+                            <p class="mt-2">We are design and product obsessed. Uncompromising in the style, quality and
+                                performance of every product we create.</p>
+                            <p class="mt-2">This is a demonstration of the Symmetry theme for Shopify. Essentials, Outerwear
+                                & Activewear kindly donated by Varley.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 bg-primary">
+                        <div class="mt-4">
+                            <h5 class="border-bottom">About Us</h5>
+                            <ul class="list-unstyled">
+                                <li class="mb-2 mt-3"><a aria-label="footer" href="#" class="li_hover text-white text-decoration-none">Contact Us</a></li>
+                                <li class="mb-2"><a aria-label="footer" href="#" class="li_hover text-white text-decoration-none">Help and Advice</a></li>
+                                <li class="mb-2"><a aria-label="footer" href="#" class="li_hover text-white text-decoration-none">Shipping & Returns</a></li>
+                                <li class="mb-2"><a aria-label="footer" href="#" class="li_hover text-white text-decoration-none">Terms and Conditions</a></li>
+                                <li class="mb-2"><a aria-label="footer" href="#" class="li_hover text-white text-decoration-none">Refund Policy</a></li>
+                            </ul>
+                        </div>
+    
+                    </div>
+                    <div class="col-md-3 bg-primary">
+                        <div class="mt-4">
+                            <h5 class="border-bottom">Our Shop</h5>
+                            <ul class="list-unstyled">
+                                <li class="mb-2 mt-3"><a aria-label="footer" href="#" class="li_hover text-white text-decoration-none">New Arrivals</a></li>
+                                <li class="mb-2"><a aria-label="footer" href="#" class="li_hover text-white text-decoration-none">Top Trending</a></li>
+                                <li class="mb-2"><a aria-label="footer" href="#" class="li_hover text-white text-decoration-none">Denim Collection</a></li>
+                                <li class="mb-2"><a aria-label="footer" href="#" class="li_hover text-white text-decoration-none">sweatshirt</a></li>
+                                <li class="mb-2"><a aria-label="footer" href="#" class="li_hover text-white text-decoration-none">Jackets</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 bg-primary">
+                        <div class="mt-4">
+                            <h5 class="border-bottom">Newsletter</h5>
+                            <p>Get 15% off your first purchaxse! Plus, be the first to know about sales, new product
+                                launches and exclusive offers!</p>
+                            <h5 class="border-bottom">Visit us:</h5>
+                            <ul class="list-unstyled list-inline">
+                                <li class="list-inline-item me-3 h5"><a href="http://facebook.com/" aria-label="facebook"
+                                        target="_blank" rel="noopener noreferrer"><i
+                                            class="fa fa-facebook text-white li_hover" aria-hidden="true"></i></a></li>
+                                <li class="list-inline-item me-3 h5"><a href="http://instagram.com/" aria-label="instagram"
+                                        target="_blank" rel="noopener noreferrer"><i
+                                            class="fa fa-instagram text-white li_hover" aria-hidden="true"></i></a></li>
+                                <li class="list-inline-item h5"><a href="http://twitter.com/" aria-label="twitter"
+                                        target="_blank" rel="noopener noreferrer"><i
+                                            class="fa fa-twitter text-white li_hover" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="container-fluid text-center bg-primary text-white py-2">
+            <p class="m-0">@Copyright <a class="h6 text-white text-decoration-none li_hover" href="#">Quick Shop.</a>
+                All Rights Reserved.</p>
+        </div>
+    </footer>
 
-    </div>
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
@@ -79,6 +235,7 @@
     <script src="./Assets/js/localstorage.js"></script>
     <script src="./Assets/js/message.js"></script>
     <script src="./Assets/js/api.js"></script>
+    <script src="./Assets/js/common.js"></script>
 
 </body>
 
